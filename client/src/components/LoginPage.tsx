@@ -1,17 +1,4 @@
 function LoginPage() {
-
-
-    return (
-
-        <p>Hello</p>
-    )
+  return <button type="button">Se Connecter</button>;
 }
-
-
-
-
-
-
-
-
 export default LoginPage;
