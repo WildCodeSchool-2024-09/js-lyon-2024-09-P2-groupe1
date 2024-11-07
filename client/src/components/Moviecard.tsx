@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 interface MoviecardProps {
-  movie: Movie[];
+  movies: Movie[];
+  link: string;
 }
 
 interface Movie {
@@ -9,11 +12,18 @@ interface Movie {
   id: number;
 }
 
-function Moviecard({ movie }: MoviecardProps) {
+function Moviecard({ movies, link }: MoviecardProps) {
+  const navigate = useNavigate();
+
+  const cardClick = (Lien: string): undefined => {
+    navigate(Lien);
+  };
+
   return (
     <>
-      {movie.map((movie) => (
+      {movies.map((movie) => (
         <figure key={movie.id}>
+          onClick={cardClick(link)}
           <img src={movie.image} alt={movie.title} />
           <h2>{movie.title}</h2>
           <p>{movie.description}</p>
