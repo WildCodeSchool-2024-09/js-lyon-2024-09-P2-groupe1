@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import "./Moviecard.css";
+import { useState } from "react";
 
 interface MoviecardProps {
   movies: Movie[];
@@ -19,16 +21,53 @@ function Moviecard({ movies, link }: MoviecardProps) {
     navigate(Lien);
   };
 
+  const [isLiked, setIsLiked] = useState(false);
+
+  const toggleLike = () => {
+    setIsLiked(!isLiked);
+  };
+
   return (
     <>
-      {movies.map((movie) => (
-        <figure key={movie.id}>
-          onClick={cardClick(link)}
-          <img src={movie.image} alt={movie.title} />
-          <h2>{movie.title}</h2>
-          <p>{movie.description}</p>
-        </figure>
-      ))}
+      <section>
+        {movies.map((movie, index) => (
+          <figure key={movie.id} className={`item-${index}`}>
+            <img
+              src={movie.image}
+              alt={movie.title}
+              onClick={() => {
+                cardClick(link);
+              }}
+              onKeyDown={() => {
+                cardClick(link);
+              }}
+            />
+            <h2
+              onClick={() => {
+                cardClick(link);
+              }}
+              onKeyDown={() => {
+                cardClick(link);
+              }}
+            >
+              {movie.title}{" "}
+            </h2>
+            <p
+              onClick={() => {
+                cardClick(link);
+              }}
+              onKeyDown={() => {
+                cardClick(link);
+              }}
+            >
+              {movie.description}
+            </p>
+            <button type="button" className="star" onClick={toggleLike}>
+              {isLiked === true ? "⭐" : "☆"}
+            </button>
+          </figure>
+        ))}
+      </section>
     </>
   );
 }
