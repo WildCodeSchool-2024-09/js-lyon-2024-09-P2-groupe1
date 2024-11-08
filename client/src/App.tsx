@@ -1,5 +1,7 @@
 import "./App.css";
+import LoginPage from "./components/LoginPage";
 import Moviecard from "./components/Moviecard";
+import Header from "./components/header";
 
 const movies = [
   {
@@ -49,6 +51,7 @@ const movies = [
 function App() {
   return (
     <>
+      <Header />
       <Moviecard
         movies={movies}
         link={
@@ -56,6 +59,7 @@ function App() {
         }
         //* le link n'est ps bon car useNavigate doit permettre de se déplacerau sein
       />
+      <LoginPage />
     </>
   );
 }
