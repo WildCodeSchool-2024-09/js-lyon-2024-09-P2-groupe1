@@ -1,4 +1,3 @@
-import "./App.css";
 import LoginPage from "./components/LoginPage";
 import Moviecard from "./components/Moviecard";
 import Header from "./components/header";
@@ -62,9 +61,7 @@ function App() {
       />
       <LoginPage />
 
-      
       <Footer />
-
     </>
   );
 }
