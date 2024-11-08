@@ -16,7 +16,7 @@ input {
   background-color: aliceblue;
   height: 43px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 1rem;
   border-radius: 8px;
 }
 
@@ -40,6 +40,12 @@ label {
   height: 43px;
   padding: 10px;
   font-size: 16px;
+  border: 2px solid transparent;
+  transition: border-color 0.5s;
+}
+
+.Homebutton:hover {
+  border-color: aliceblue;
 }
 
 form {
@@ -47,4 +53,13 @@ form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+#logo {
+  width: 85%;
+  height: 16em;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  margin-left: 2rem;
 }
