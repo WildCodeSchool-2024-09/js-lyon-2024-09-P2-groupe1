@@ -2,6 +2,7 @@ import "./App.css";
 import LoginPage from "./components/LoginPage";
 import Moviecard from "./components/Moviecard";
 import Header from "./components/header";
+import Footer from "./components/footer";
 
 const movies = [
   {
@@ -60,6 +61,10 @@ function App() {
         //* le link n'est ps bon car useNavigate doit permettre de se déplacerau sein
       />
       <LoginPage />
+
+      
+      <Footer />
+
     </>
   );
 }
