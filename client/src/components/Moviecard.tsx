@@ -32,16 +32,18 @@ function Moviecard({ movies, link }: MoviecardProps) {
       <section>
         {movies.map((movie, index) => (
           <figure key={movie.id} className={`item-${index}`}>
-            <img
-              src={movie.image}
-              alt={movie.title}
-              onClick={() => {
-                cardClick(link);
-              }}
-              onKeyDown={() => {
-                cardClick(link);
-              }}
-            />
+            <div className="centerImage">
+              <img
+                src={movie.image}
+                alt={movie.title}
+                onClick={() => {
+                  cardClick(link);
+                }}
+                onKeyDown={() => {
+                  cardClick(link);
+                }}
+              />
+            </div>
             <h2
               onClick={() => {
                 cardClick(link);
@@ -52,19 +54,21 @@ function Moviecard({ movies, link }: MoviecardProps) {
             >
               {movie.title}{" "}
             </h2>
-            <p
-              onClick={() => {
-                cardClick(link);
-              }}
-              onKeyDown={() => {
-                cardClick(link);
-              }}
-            >
-              {movie.description}
-            </p>
-            <button type="button" className="star" onClick={toggleLike}>
-              {isLiked === true ? "⭐" : "☆"}
-            </button>
+            <div className="paraButton">
+              <p
+                onClick={() => {
+                  cardClick(link);
+                }}
+                onKeyDown={() => {
+                  cardClick(link);
+                }}
+              >
+                {movie.description}
+              </p>
+              <button type="button" className="star" onClick={toggleLike}>
+                {isLiked === true ? "⭐" : "☆"}
+              </button>
+            </div>
           </figure>
         ))}
       </section>
