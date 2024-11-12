@@ -26,9 +26,9 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+/* button:hover {
   background-color: rgba(0, 0, 0, 0.1);
-}
+}  à enlever si on veut pas voir les différences dans la taille des box des logo*/
 
 #Log_In {
   background-color: white;
@@ -61,6 +61,20 @@ button:hover {
   background: transparent;
   border: none;
   transition: transform 0.3s ease;
+}
+
+#star {
+  border: none;
+  width: 3em;
+  height: 3em;
+  padding-bottom: 2em;
+  background: transparent;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+#star:hover {
+  transform: scale(1.2);
 }
 
 #home:hover {
