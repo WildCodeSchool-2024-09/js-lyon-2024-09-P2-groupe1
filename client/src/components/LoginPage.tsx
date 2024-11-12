@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Logo from "../assets/images/Logo_RT.png";
-import "../LoginPage.css";
+import "./LoginPage.css"
 
 function LoginPage() {
   const [userName, setUserName] = useState("");
