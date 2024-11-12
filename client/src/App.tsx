@@ -1,7 +1,7 @@
 import LoginPage from "./components/LoginPage";
 import Moviecard from "./components/Moviecard";
-import Header from "./components/header";
 import Footer from "./components/footer";
+import Header from "./components/header";
 
 const movies = [
   {
@@ -57,7 +57,6 @@ function App() {
         link={
           "https://www.marmiton.org/recettes/recette_tomates-farcies-facile_63622.aspx"
         }
-      //* le link n'est ps bon car useNavigate doit permettre de se déplacerau sein
       />
       <LoginPage />
 
