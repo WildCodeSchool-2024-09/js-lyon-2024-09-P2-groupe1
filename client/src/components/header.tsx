@@ -1,6 +1,6 @@
 import Logo from "../assets/images/Logo_RT.png";
-import Home from "../assets/images/home.png";
-import Star from "../assets/images/star.png";
+import Home from "../assets/images/home2.png";
+import Star from "../assets/images/star2.png";
 import "./header.css";
 
 function Header() {
