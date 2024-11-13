@@ -11,9 +11,9 @@ function LoginPage() {
     setPassword("");
   };
   return (
-    <div>
-      <img src={Logo} id="logo" alt="Logo_Rotten_Tomatoes" />
+    <section className="loginPage">
       <div className="formulaire">
+        <img src={Logo} id="logo1" alt="Logo_Rotten_Tomatoes" />
         <form onSubmit={handleSubmit}>
           <div className="label1">
             <label htmlFor="identifiant">Identifiant</label>
@@ -40,7 +40,7 @@ function LoginPage() {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 export default LoginPage;

@@ -1,20 +1,15 @@
-html {
-  height: 100%;
+.loginPage {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-* {
   background-color: #bc4b4b;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: -8px;
 }
 
 input {
   background-color: aliceblue;
-  height: 43px;
+  height: 32px;
   padding: 10px;
   font-size: 1rem;
   border-radius: 8px;
@@ -42,10 +37,11 @@ label {
   font-size: 16px;
   border: 2px solid transparent;
   transition: border-color 0.5s;
+  margin: 0;
 }
 
 .Homebutton:hover {
-  border-color: aliceblue;
+  border-color: blanchedalmond;
 }
 
 form {
@@ -55,7 +51,7 @@ form {
   gap: 1rem;
 }
 
-#logo {
+#logo1 {
   width: 85%;
   height: 16em;
   padding: 0.5em;
