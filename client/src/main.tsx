@@ -69,16 +69,16 @@ const moviesData = [
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <LoginPage />,
+    path: "/home",
+    element: <Moviecard movies={moviesData} link={""} />,
   },
   {
-    path: "movie",
+    path: "login",
     element: <App />,
     children: [
       {
         path: "",
-        element: <Moviecard movies={moviesData} link={""} />,
+        element: <LoginPage />,
       },
     ],
   },
