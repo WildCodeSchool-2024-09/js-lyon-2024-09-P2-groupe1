@@ -1,7 +1,3 @@
-* {
-  margin: 0;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -63,6 +59,21 @@ button:hover {
   transition: transform 0.3s ease;
 }
 
+#star {
+  border: none;
+  width: 2em;
+  height: 2em;
+  padding-bottom: 2em;
+  background: transparent;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+#star:hover {
+  transform: scale(1.2);
+}
+
 #home:hover {
   transform: scale(1.2);
 }
+
