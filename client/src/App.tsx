@@ -77,6 +77,7 @@ function App() {
         link={
           "https://www.marmiton.org/recettes/recette_tomates-farcies-facile_63622.aspx"
         }
+      //* le link n'est pas bon car useNavigate doit permettre de se déplacer au sein du router
       />
       <Footer />
     </>
