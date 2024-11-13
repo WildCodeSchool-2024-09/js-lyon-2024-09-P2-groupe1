@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import "./Moviecard.css";
 import { useState } from "react";
+import MovieDetails from "./MovieDetails";
 
 interface MoviecardProps {
   movies: Movie[];
@@ -10,21 +10,27 @@ interface MoviecardProps {
 interface Movie {
   image: string;
   title: string;
-  description: string;
+  year: number;
+  director: string;
+  country: string;
+  summary: string;
   id: number;
 }
 
-function Moviecard({ movies, link }: MoviecardProps) {
-  const navigate = useNavigate();
-
-  const cardClick = (Lien: string): undefined => {
-    navigate(Lien);
-  };
-
+function Moviecard({ movies }: MoviecardProps) {
   const [isLiked, setIsLiked] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
   const toggleLike = () => {
     setIsLiked(!isLiked);
+  };
+
+  const handleMovieClick = (movie: Movie) => {
+    setSelectedMovie(movie);
+  };
+
+  const closeMovieDetails = () => {
+    setSelectedMovie(null);
   };
 
   return (
@@ -36,42 +42,54 @@ function Moviecard({ movies, link }: MoviecardProps) {
               <img
                 src={movie.image}
                 alt={movie.title}
-                onClick={() => {
-                  cardClick(link);
-                }}
-                onKeyDown={() => {
-                  cardClick(link);
+                onClick={() => handleMovieClick(movie)}
+                onKeyUp={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleMovieClick(movie);
+                  }
                 }}
               />
             </div>
             <h2
-              onClick={() => {
-                cardClick(link);
-              }}
-              onKeyDown={() => {
-                cardClick(link);
+              onClick={() => handleMovieClick(movie)}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleMovieClick(movie);
+                }
               }}
             >
-              {movie.title}{" "}
+              {movie.title}
             </h2>
             <div className="paraButton">
-              <p
-                onClick={() => {
-                  cardClick(link);
+              <button
+                type="button"
+                className="star"
+                onClick={toggleLike}
+                onKeyUp={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    toggleLike();
+                  }
                 }}
-                onKeyDown={() => {
-                  cardClick(link);
-                }}
+                aria-pressed={isLiked}
               >
-                {movie.description}
-              </p>
-              <button type="button" className="star" onClick={toggleLike}>
-                {isLiked === true ? "⭐" : "☆"}
+                {isLiked ? "⭐" : "☆"}
               </button>
             </div>
           </figure>
         ))}
       </section>
+
+      {selectedMovie && (
+        <MovieDetails
+          image={selectedMovie.image}
+          title={selectedMovie.title}
+          year={selectedMovie.year}
+          director={selectedMovie.director}
+          country={selectedMovie.country}
+          summary={selectedMovie.summary}
+          onClose={closeMovieDetails}
+        />
+      )}
     </>
   );
 }
