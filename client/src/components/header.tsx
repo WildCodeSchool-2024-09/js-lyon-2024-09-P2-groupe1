@@ -16,7 +16,7 @@ function Header() {
             <img src={Star} id="star" alt="Star_Icon" />
           </button>
         </div>
-        <button type="button" id="Log_In">
+        <button type="button" id="Log_In" className="buttonLogIn">
           Log In
         </button>
       </div>
