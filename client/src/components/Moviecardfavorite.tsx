@@ -9,6 +9,7 @@ interface Movies {
   image: string;
   title: string;
   description: string;
+  resume: string;
 }
 
 function Moviecardfavorite({ movies }: MoviecardfavoriteProps) {
@@ -22,11 +23,15 @@ function Moviecardfavorite({ movies }: MoviecardfavoriteProps) {
       <section>
         <figure>
           <div className="centerImage">
-            <img className="imagefilm" src={movies.image} alt={movies.title} />
+            <img
+              className="imagefilm"
+              src={movies[0].image}
+              alt={movies[0].title}
+            />
           </div>
           <section className="titleButton">
-            <h2 className="titlefilm">{movies.title} </h2>
-            <p> {movies.resume}</p>
+            <h2 className="titlefilm">{movies[0].title} </h2>
+            <p> {movies[0].resume}</p>
             <button type="button" className="star" onClick={toggleLike}>
               {isLiked === true ? "⭐" : "☆"}
             </button>

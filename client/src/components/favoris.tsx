@@ -1,6 +1,6 @@
+import Moviecardfavorite from "./Moviecardfavorite";
 import Footer from "./footer";
 import Header from "./header";
-import Moviecardfavorite from "./Moviecardfavorite";
 
 const moviesFavorite = [
   {
