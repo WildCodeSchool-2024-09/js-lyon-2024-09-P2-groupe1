@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./Moviecard.css";
 import { useState } from "react";
+import MovieDetails from "./MovieDetails";
 
 interface MoviecardProps {
   movies: Movie[];
@@ -10,7 +11,10 @@ interface MoviecardProps {
 interface Movie {
   image: string;
   title: string;
-  description: string;
+  year: number;
+  director: string;
+  country: string;
+  summary: string;
   id: number;
 }
 
