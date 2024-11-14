@@ -3,6 +3,7 @@ import { useState } from "react";
 
 interface MoviecardfavoriteProps {
   movies: Movies[];
+  index: number;
 }
 
 interface Movies {
@@ -10,9 +11,10 @@ interface Movies {
   title: string;
   description: string;
   resume: string;
+  id: number;
 }
 
-function Moviecardfavorite({ movies }: MoviecardfavoriteProps) {
+function Moviecardfavorite({ movies, index }: MoviecardfavoriteProps) {
   const [isLiked, setIsLiked] = useState(false);
 
   const toggleLike = () => {
@@ -21,7 +23,8 @@ function Moviecardfavorite({ movies }: MoviecardfavoriteProps) {
   return (
     <>
       <section>
-        <figure>
+        <figure key={movies[0].id} className={`item-${index}`}>
+          {/* enlever les 0 dès que j'aurai trouvé comment transférer les infos d'une page à une autre */}
           <div className="centerImage">
             <img
               className="imagefilm"

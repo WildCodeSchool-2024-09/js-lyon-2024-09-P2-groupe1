@@ -1,20 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import "./Moviecard.css";
-import { useState } from "react";
-
-interface MoviecardProps {
-  movies: Movie[];
-  link: string;
-}
+import "./Home.css";
+import { useEffect, useState } from "react";
 
 interface Movie {
-  image: string;
-  title: string;
+  image: { medium: string };
+  name: string;
   description: string;
   id: number;
 }
 
-function Moviecard({ movies, link }: MoviecardProps) {
+function Home() {
   const navigate = useNavigate();
 
   const cardClick = (Lien: string): undefined => {
@@ -27,16 +22,28 @@ function Moviecard({ movies, link }: MoviecardProps) {
     setIsLiked(!isLiked);
   };
 
+  const [shows, setShows] = useState<Movie[]>([]);
+
+  useEffect(() => {
+    fetch("https://api.tvmaze.com/shows")
+      .then((response) => response.json())
+      .then((data) => {
+        setShows(data);
+      });
+  }, []);
+
+  const link = "link";
+
   return (
     <>
       <section className="card">
-        {movies.map((movie, index) => (
+        {shows.slice(0, 12).map((movie, index) => (
           <figure key={movie.id} className={`item-${index}`}>
             <div className="centerImage">
               <img
                 className="imagefilm"
-                src={movie.image}
-                alt={movie.title}
+                src={movie.image.medium}
+                alt={movie.name}
                 onClick={() => {
                   cardClick(link);
                 }}
@@ -55,7 +62,7 @@ function Moviecard({ movies, link }: MoviecardProps) {
                 }}
                 className="titlefilm"
               >
-                {movie.title}{" "}
+                {movie.name}
               </h2>
               <button type="button" className="star" onClick={toggleLike}>
                 {isLiked === true ? "⭐" : "☆"}
@@ -68,4 +75,4 @@ function Moviecard({ movies, link }: MoviecardProps) {
   );
 }
 
-export default Moviecard;
+export default Home;
