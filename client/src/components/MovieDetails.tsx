@@ -1,7 +1,6 @@
 import "./MovieDetails.css";
 import { useState } from "react";
 import BackArrow from "../assets/images/back-arrow.png";
-import Moviecard from "./Moviecard";
 
 interface MovieDetailsProps {
   image: string;
