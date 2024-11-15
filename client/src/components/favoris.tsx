@@ -2,7 +2,7 @@
 import Footer from "./footer";
 import Header from "./header";
 
-// const moviesFavorite = [
+// const moviesFgit switch avorite = [
 //   {
 //     title: "Mon film préféré",
 //     image:
