@@ -33,7 +33,7 @@ function Favoris() {
   return (
     <>
       <Header />
-      <Moviecardfavorite movies={moviesFavorite} />
+      {/* <Moviecardfavorite movies={moviesFavorite} /> */}
       <Footer />
     </>
   );
