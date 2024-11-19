@@ -16,10 +16,14 @@ function Home() {
     navigate(Lien);
   };
 
-  const [isLiked, setIsLiked] = useState(false);
+  const [favorites, setFavorites] = useState<number[]>([]);
 
-  const toggleLike = () => {
-    setIsLiked(!isLiked);
+  const toggleLike = (id: number) => {
+    if (favorites.includes(id)) {
+      setFavorites(favorites.filter((AlreadyId) => AlreadyId !== id));
+    } else {
+      setFavorites([...favorites, id]);
+    }
   };
 
   const [shows, setShows] = useState<Movie[]>([]);
@@ -64,8 +68,12 @@ function Home() {
               >
                 {movie.name}
               </h2>
-              <button type="button" className="star" onClick={toggleLike}>
-                {isLiked === true ? "⭐" : "☆"}
+              <button
+                type="button"
+                className="star"
+                onClick={() => toggleLike(movie.id)}
+              >
+                {favorites.includes(movie.id) === true ? "⭐" : "☆"}
               </button>
             </section>
           </figure>
