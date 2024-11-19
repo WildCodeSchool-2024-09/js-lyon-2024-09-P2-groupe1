@@ -1,26 +1,27 @@
-// // Import necessary modules from React and React Router
+// Import necessary modules from React and React Router
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-// /* ************************************************************************* */
+/* ************************************************************************* */
 
 // Import the main app component
 import App from "./App";
 import LoginPage from "./components/LoginPage";
+import MovieDetails from "./components/MovieDetails";
 import Home from "./pages/Home";
 
-// // Import additional components for new routes
+// Import additional components for new routes
 
-// // Try creating these components in the "pages" folder
+// Try creating these components in the "pages" folder
 
-// // import About from "./pages/About";
-// // import Contact from "./pages/Contact";
+// import About from "./pages/About";
+// import Contact from "./pages/Contact";
 
-// /* ************************************************************************* */
+/* ************************************************************************* */
 
-// // Create router configuration with routes
-// // You can add more routes as you build out your app!
+// Create router configuration with routes
+// You can add more routes as you build out your app!
 
 // const moviesData = [
 //   {
@@ -80,19 +81,23 @@ const router = createBrowserRouter([
         path: "",
         element: <Home />,
       },
+      {
+        path: "movie/:id", // Route dynamique pour les détails du film
+        element: <MovieDetails />,
+      },
     ],
   },
 ]);
 
-// /* ************************************************************************* */
+/* ************************************************************************* */
 
-// // Find the root element in the HTML document
+// Find the root element in the HTML document
 const rootElement = document.getElementById("root");
 if (rootElement == null) {
   throw new Error(`Your HTML Document should contain a <div id="root"></div>`);
 }
 
-// // Render the app inside the root element
+// Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
     <RouterProvider router={router} />

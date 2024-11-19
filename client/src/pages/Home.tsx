@@ -12,8 +12,8 @@ interface Movie {
 function Home() {
   const navigate = useNavigate();
 
-  const cardClick = (Lien: string): undefined => {
-    navigate(Lien);
+  const cardClick = (id: number): void => {
+    navigate(`/movie/${id}`);
   };
 
   const [isLiked, setIsLiked] = useState(false);
@@ -32,8 +32,6 @@ function Home() {
       });
   }, []);
 
-  const link = "link";
-
   return (
     <>
       <section className="card">
@@ -44,22 +42,21 @@ function Home() {
                 className="imagefilm"
                 src={movie.image.medium}
                 alt={movie.name}
-                onClick={() => {
-                  cardClick(link);
-                }}
-                onKeyDown={() => {
-                  cardClick(link);
-                }}
+                onClick={() => cardClick(movie.id)}
+                onKeyDown={() => cardClick(movie.id)}
               />
+              <h2
+                onClick={() => cardClick(movie.id)}
+                onKeyDown={() => cardClick(movie.id)}
+                className="titlefilm"
+              >
+                {movie.name}
+              </h2>
             </div>
             <section className="titleButton">
               <h2
-                onClick={() => {
-                  cardClick(link);
-                }}
-                onKeyDown={() => {
-                  cardClick(link);
-                }}
+                onClick={() => cardClick(movie.id)}
+                onKeyDown={() => cardClick(movie.id)}
                 className="titlefilm"
               >
                 {movie.name}
