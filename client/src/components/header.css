@@ -49,6 +49,12 @@ button:hover {
   align-items: center;
 }
 
+#user {
+  height: 1.6em;
+  background: transparent;
+  border: none;
+}
+
 #home {
   border: none;
   width: 2em;
