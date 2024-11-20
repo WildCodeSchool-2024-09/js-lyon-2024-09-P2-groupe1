@@ -45,13 +45,6 @@ function Home() {
                 onClick={() => cardClick(movie.id)}
                 onKeyDown={() => cardClick(movie.id)}
               />
-              <h2
-                onClick={() => cardClick(movie.id)}
-                onKeyDown={() => cardClick(movie.id)}
-                className="titlefilm"
-              >
-                {movie.name}
-              </h2>
             </div>
             <section className="titleButton">
               <h2
