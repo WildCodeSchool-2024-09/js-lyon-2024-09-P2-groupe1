@@ -19,7 +19,7 @@ function Home() {
   const [favorites, setFavorites] = useState<number[]>([]);
 
   const toggleLike = (id: number) => {
-    if (favorites.includes(id)===true) {
+    if (favorites.includes(id) === true) {
       setFavorites(favorites.filter((AlreadyId) => AlreadyId !== id));
     } else {
       setFavorites([...favorites, id]);
