@@ -22,10 +22,6 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
 #Log_In {
   background-color: white;
   margin-top: 0;
@@ -34,7 +30,6 @@ button:hover {
   width: 7em;
   height: 2em;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   transition: transform 0.3s ease;
 }
 
