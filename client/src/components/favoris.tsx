@@ -9,7 +9,7 @@ function Favoris() {
     <>
       <Header />
       {/* <FavoriteContext.Provider> */}
-        {/* <Moviecardfavorite movies={moviesFavorite} /> */}
+      {/* <Moviecardfavorite movies={moviesFavorite} /> */}
       {/* </FavoriteContext.Provider> */}
       <Footer />
     </>
