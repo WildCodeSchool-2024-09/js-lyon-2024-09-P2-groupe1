@@ -7,12 +7,12 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import { Favoriteprovider } from "./Contexts/FavoriteContext";
 import { UserProvider } from "./Contexts/UserContext";
 import LoginPage from "./components/LoginPage";
 import MovieDetails from "./components/MovieDetails";
-import Home from "./pages/Home";
 import Favoris from "./components/favoris";
-import { Favoriteprovider } from "./Contexts/FavoriteContext";
+import Home from "./pages/Home";
 
 // Import additional components for new routes
 
