@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import { UserProvider } from "./Contexts/UserContext";
 import LoginPage from "./components/LoginPage";
 import MovieDetails from "./components/MovieDetails";
 import Home from "./pages/Home";
@@ -100,7 +101,9 @@ if (rootElement == null) {
 // Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </StrictMode>,
 );
 

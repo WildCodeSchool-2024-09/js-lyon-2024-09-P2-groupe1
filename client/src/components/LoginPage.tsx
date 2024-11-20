@@ -1,15 +1,25 @@
 import { useState } from "react";
 import Logo from "../assets/images/Logo_RT.png";
 import "./LoginPage.css";
+import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../Contexts/UserContext";
 
 function LoginPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const { setShowUserLogo } = useUserContext();
+  const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (userName && password) {
+      setShowUserLogo(true);
+      navigate("/");
+    }
     setUserName("");
     setPassword("");
   };
+
   return (
     <section className="loginPage">
       <div className="formulaire">
