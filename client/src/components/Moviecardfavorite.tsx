@@ -9,7 +9,6 @@ interface MoviecardfavoriteProps {
 interface Movies {
   image: string;
   title: string;
-  description: string;
   resume: string;
   id: number;
 }
