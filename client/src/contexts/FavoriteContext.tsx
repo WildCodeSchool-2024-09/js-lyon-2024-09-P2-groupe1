@@ -2,8 +2,8 @@ import {
   type ReactNode,
   createContext,
   useContext,
-  useState,
   useEffect,
+  useState,
 } from "react";
 
 interface FavoriteContextProps {
@@ -60,10 +60,8 @@ export const useFavorite = () => {
   const value = useContext(FavoriteContext);
 
   if (value === null) {
-    throw new Error("useWeather has to be used within <WeatherProvider>");
+    throw new Error("useFavorite has to be used within <FavoriteProvider>");
   }
 
   return value;
 };
-
-export default FavoriteContext;

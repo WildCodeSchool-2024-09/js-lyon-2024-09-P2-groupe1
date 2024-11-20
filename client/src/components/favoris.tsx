@@ -1,17 +1,9 @@
-// import Moviecardfavorite from "./Moviecardfavorite";
-import Footer from "./footer";
-import Header from "./header";
-// import FavoriteContext from "../contexts/FavoriteContext";
+import Moviecardfavorite from "./Moviecardfavorite";
 
 function Favoris() {
-  // const { movies } = useContext(MovieContext);
   return (
     <>
-      <Header />
-      {/* <FavoriteContext.Provider> */}
-      {/* <Moviecardfavorite movies={moviesFavorite} /> */}
-      {/* </FavoriteContext.Provider> */}
-      <Footer />
+      <Moviecardfavorite />
     </>
   );
 }

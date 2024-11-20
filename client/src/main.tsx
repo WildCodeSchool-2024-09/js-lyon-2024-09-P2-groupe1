@@ -11,6 +11,8 @@ import { UserProvider } from "./Contexts/UserContext";
 import LoginPage from "./components/LoginPage";
 import MovieDetails from "./components/MovieDetails";
 import Home from "./pages/Home";
+import Favoris from "./components/favoris";
+import { Favoriteprovider } from "./Contexts/FavoriteContext";
 
 // Import additional components for new routes
 
@@ -86,6 +88,10 @@ const router = createBrowserRouter([
         path: "movie/:id", // Route dynamique pour les détails du film
         element: <MovieDetails />,
       },
+      {
+        path: "favoris",
+        element: <Favoris />,
+      },
     ],
   },
 ]);
@@ -102,7 +108,9 @@ if (rootElement == null) {
 createRoot(rootElement).render(
   <StrictMode>
     <UserProvider>
-      <RouterProvider router={router} />
+      <Favoriteprovider>
+        <RouterProvider router={router} />
+      </Favoriteprovider>
     </UserProvider>
   </StrictMode>,
 );
