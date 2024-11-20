@@ -33,34 +33,37 @@ function MovieDetails() {
 
   return (
     <section className="movie-details">
-      <img
-        src={movie.image.original}
-        alt={movie.name}
-        className="movie-poster"
-      />
-      <div className="movie-info">
-        <h1>{movie.name}</h1>
-        <p>
-          <strong>Année de sortie :</strong>{" "}
-          {new Date(movie.premiered).getFullYear()}
-        </p>
-        <p>
-          <strong>Pays :</strong> {movie.network?.country.name}
-        </p>
-        <p>
-          <strong>Genres :</strong> {movie.genres.join(", ")}
-        </p>
-        {/* <p>
-          <strong>Résumé :</strong>{" "}
-          <span dangerouslySetInnerHTML={{ __html: movie.summary }} />
-        </p> */}
-      </div>
-
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <button type="button">
-          <img src={LeftArrow} alt="Retour en arrière" />
-        </button>
-      </Link>
+      <section className="movie-card">
+        <img
+          src={movie.image.original}
+          alt={movie.name}
+          className="movie-poster"
+        />
+        <div className="movie-info">
+          <h1>{movie.name}</h1>
+          <p>
+            <strong>Année de sortie :</strong>{" "}
+            {new Date(movie.premiered).getFullYear()}
+          </p>
+          <p>
+            <strong>Pays :</strong> {movie.network?.country.name}
+          </p>
+          <p>
+            <strong>Genres :</strong> {movie.genres.join(", ")}
+          </p>
+          {/* <p>
+            {" "}
+            <span dangerouslySetInnerHTML={{ __html: movie.summary }} />
+          </p> */}
+        </div>
+      </section>
+      <section id="ButtonBackSection">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <button type="button">
+            <img src={LeftArrow} alt="Retour en arrière" id="BackButton" />
+          </button>
+        </Link>
+      </section>
     </section>
   );
 }
