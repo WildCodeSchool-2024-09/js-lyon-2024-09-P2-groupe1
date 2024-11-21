@@ -6,7 +6,7 @@ import X from "../assets/images/twitter.png";
 function Footer() {
   return (
     <section className="footer">
-      <h2>© TEAM TOTOMATOES 🍅 - WCS LYON 2024</h2>
+      <h3>© TEAM TOTOMATOES 🍅 - WCS LYON 2024</h3>
       <div id="networks">
         <a href="https://www.instagram.com/">
           <button type="button">

@@ -17,7 +17,7 @@ img#BackButton:hover {
 }
 
 .movie-card {
-  margin-top: 1em;
+  margin-top: 10em;
   background-color: lightgrey;
   border-radius: 1em;
   box-shadow: 5px 5px 12px 2px #6e6e6e;
