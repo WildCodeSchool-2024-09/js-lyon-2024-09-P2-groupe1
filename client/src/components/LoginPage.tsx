@@ -26,7 +26,7 @@ function LoginPage() {
         <img src={Logo} id="logo1" alt="Logo_Rotten_Tomatoes" />
         <form onSubmit={handleSubmit}>
           <div className="label1">
-            <label htmlFor="identifiant">Identifiant</label>
+            <label htmlFor="identifiant">Username</label>
             <input
               id="identifiant"
               type="text"
@@ -36,7 +36,7 @@ function LoginPage() {
             />
           </div>
           <div className="label2">
-            <label htmlFor="mdp">Mot de passe</label>
+            <label htmlFor="mdp">Password</label>
             <input
               id="mdp"
               type="password"
