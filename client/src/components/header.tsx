@@ -3,6 +3,7 @@ import Logo from "../assets/images/Logo_RT.png";
 import Home from "../assets/images/home2.png";
 import Star from "../assets/images/star2.png";
 import User from "../assets/images/user.png";
+import { Link } from "react-router-dom";
 import "./header.css";
 
 function Header() {
@@ -21,11 +22,11 @@ function Header() {
         </a>
 
         <div className="star-container">
-          <a href="/favorites">
+          <Link to="/favorites">
             <button type="button" className="buttonHomeStar">
               <img src={Star} id="star" alt="Star_Icon" />
             </button>
-          </a>
+          </Link>
         </div>
         <a href="/login">
           <button type="button" id="Log_In" className="buttonLogIn">
