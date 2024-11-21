@@ -1,6 +1,6 @@
 import "../pages/Home.css";
 import { useEffect, useState } from "react";
-import { type Movie, useFavorite } from "../Contexts/FavoriteContext";
+import { type Movie, useFavorite } from "../contexts/FavoriteContext";
 
 function Moviecardfavorite() {
   const { favorites, shows } = useFavorite();
