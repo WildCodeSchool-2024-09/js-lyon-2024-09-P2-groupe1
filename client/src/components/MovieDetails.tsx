@@ -42,11 +42,11 @@ function MovieDetails() {
         <div className="movie-info">
           <h1>{movie.name}</h1>
           <p>
-            <strong>Année de sortie :</strong>{" "}
+            <strong>Release date :</strong>{" "}
             {new Date(movie.premiered).getFullYear()}
           </p>
           <p>
-            <strong>Pays :</strong> {movie.network?.country.name}
+            <strong>Country :</strong> {movie.network?.country.name}
           </p>
           <p>
             <strong>Genres :</strong> {movie.genres.join(", ")}

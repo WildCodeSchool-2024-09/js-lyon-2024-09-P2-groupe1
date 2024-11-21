@@ -9,20 +9,29 @@ function Header() {
   const { showUserLogo } = useUserContext();
   return (
     <section className="header">
-      <img src={Logo} id="logo" alt="Logo_Rotten_Tomatoes" />
+      <a href="/">
+        <img src={Logo} id="logo" alt="Logo_Rotten_Tomatoes" />
+      </a>
       <div id="navbar">
         {showUserLogo && <img src={User} id="user" alt="user" />}
-        <button type="button" className="buttonHomeStar">
-          <img src={Home} id="home" alt="Home_Icon" />
-        </button>
-        <div className="star-container">
+        <a href="/">
           <button type="button" className="buttonHomeStar">
-            <img src={Star} id="star" alt="Star_Icon" />
+            <img src={Home} id="home" alt="Home_Icon" />
           </button>
+        </a>
+
+        <div className="star-container">
+          <a href="/favorites">
+            <button type="button" className="buttonHomeStar">
+              <img src={Star} id="star" alt="Star_Icon" />
+            </button>
+          </a>
         </div>
-        <button type="button" id="Log_In" className="buttonLogIn">
-          Log In
-        </button>
+        <a href="/login">
+          <button type="button" id="Log_In" className="buttonLogIn">
+            Log In
+          </button>
+        </a>
       </div>
     </section>
   );

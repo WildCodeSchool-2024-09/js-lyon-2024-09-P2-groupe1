@@ -39,8 +39,8 @@ function Home() {
   return (
     <>
       <section className="card">
-        {shows.slice(0, 12).map((movie, index) => (
-          <figure key={movie.id} className={`item-${index}`}>
+        {shows.slice(0, 12).map((movie) => (
+          <figure key={movie.id} className="item">
             <div className="centerImage">
               <img
                 className="imagefilm"
