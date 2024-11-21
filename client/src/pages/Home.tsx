@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import { Link } from "react-router-dom";
 import { useFavorite } from "../Contexts/FavoriteContext";
 
 function Home() {
@@ -22,7 +21,6 @@ function Home() {
 
   return (
     <>
-      <Link to="/favorites"> Coucou </Link>
       <section className="card">
         {shows.slice(0, 12).map((movie, index) => (
           <figure key={movie.id} className={`item-${index}`}>
