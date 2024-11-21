@@ -1,20 +1,23 @@
 import "../pages/Home.css";
-import { useFavorite } from "../Contexts/FavoriteContext";
+import { useEffect, useState } from "react";
+import { type Movie, useFavorite } from "../Contexts/FavoriteContext";
 
 function Moviecardfavorite() {
-  const { favorites, toggleLike, shows } = useFavorite();
+  const { favorites, shows } = useFavorite();
 
-  const showFavorite = [];
+  const [showFavorite, setShowFavorite] = useState<Movie[]>([]);
 
-  for (let i = 0; i < shows.length; i++) {
-    if (favorites.includes(shows[i].id) === true) {
-      showFavorite.push(shows[i]);
-    }
-  }
+  useEffect(() => {
+    const favoriteShows: Movie[] = shows.filter((show) =>
+      favorites.includes(show.id),
+    );
+    setShowFavorite(favoriteShows);
+  }, [favorites, shows]);
+
   return (
     <>
       <section className="card">
-        {showFavorite.slice(0, 12).map((movie, index) => (
+        {showFavorite.map((movie, index) => (
           <figure key={movie.id} className={`item-${index}`}>
             <div className="centerImage">
               <img
@@ -25,11 +28,7 @@ function Moviecardfavorite() {
             </div>
             <section className="titleButton">
               <h2 className="titlefilm">{movie.name}</h2>
-              <button
-                type="button"
-                className="star"
-                onClick={() => toggleLike(movie.id)}
-              >
+              <button type="button" className="star">
                 {favorites.includes(movie.id) === true ? "⭐" : "☆"}
               </button>
             </section>

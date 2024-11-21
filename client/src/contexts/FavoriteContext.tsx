@@ -10,7 +10,7 @@ interface FavoriteContextProps {
   children: ReactNode;
 }
 
-interface Movie {
+export interface Movie {
   image: { medium: string };
   name: string;
   id: number;
@@ -19,7 +19,6 @@ interface Movie {
 interface FavoriteContextType {
   favorites: number[];
   setFavorites: React.Dispatch<React.SetStateAction<number[]>>;
-  toggleLike: (id: number) => void;
   shows: Movie[];
   setShows: React.Dispatch<React.SetStateAction<Movie[]>>;
 }
@@ -28,14 +27,6 @@ const FavoriteContext = createContext<FavoriteContextType | null>(null);
 
 export function Favoriteprovider({ children }: FavoriteContextProps) {
   const [favorites, setFavorites] = useState<number[]>([]);
-
-  const toggleLike = (id: number) => {
-    if (favorites.includes(id) === true) {
-      setFavorites(favorites.filter((AlreadyId) => AlreadyId !== id));
-    } else {
-      setFavorites([...favorites, id]);
-    }
-  };
 
   const [shows, setShows] = useState<Movie[]>([]);
 
@@ -49,7 +40,7 @@ export function Favoriteprovider({ children }: FavoriteContextProps) {
 
   return (
     <FavoriteContext.Provider
-      value={{ favorites, setFavorites, toggleLike, shows, setShows }}
+      value={{ favorites, setFavorites, shows, setShows }}
     >
       {children}
     </FavoriteContext.Provider>

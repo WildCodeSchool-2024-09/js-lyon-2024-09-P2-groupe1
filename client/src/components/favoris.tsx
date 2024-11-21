@@ -1,6 +1,6 @@
 import Moviecardfavorite from "./Moviecardfavorite";
 
-function Favoris() {
+function Favorites() {
   return (
     <>
       <Moviecardfavorite />
@@ -8,4 +8,4 @@ function Favoris() {
   );
 }
 
-export default Favoris;
+export default Favorites;
