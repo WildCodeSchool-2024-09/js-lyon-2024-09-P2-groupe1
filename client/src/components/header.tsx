@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useUserContext } from "../Contexts/UserContext";
 import Logo from "../assets/images/Logo_RT.png";
 import Home from "../assets/images/home2.png";
@@ -9,29 +10,29 @@ function Header() {
   const { showUserLogo } = useUserContext();
   return (
     <section className="header">
-      <a href="/">
+      <Link to="/">
         <img src={Logo} id="logo" alt="Logo_Rotten_Tomatoes" />
-      </a>
+      </Link>
       <div id="navbar">
         {showUserLogo && <img src={User} id="user" alt="user" />}
-        <a href="/">
+        <Link to="/">
           <button type="button" className="buttonHomeStar">
             <img src={Home} id="home" alt="Home_Icon" />
           </button>
-        </a>
+        </Link>
 
         <div className="star-container">
-          <a href="/favorites">
+          <Link to="/favorites">
             <button type="button" className="buttonHomeStar">
               <img src={Star} id="star" alt="Star_Icon" />
             </button>
-          </a>
+          </Link>
         </div>
-        <a href="/login">
+        <Link to="/login">
           <button type="button" id="Log_In" className="buttonLogIn">
             Log In
           </button>
-        </a>
+        </Link>
       </div>
     </section>
   );
