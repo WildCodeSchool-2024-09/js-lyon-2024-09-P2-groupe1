@@ -7,9 +7,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import { Favoriteprovider } from "./Contexts/FavoriteContext";
 import { UserProvider } from "./Contexts/UserContext";
 import LoginPage from "./components/LoginPage";
 import MovieDetails from "./components/MovieDetails";
+import Favorites from "./components/favoris";
 import Home from "./pages/Home";
 
 // Import additional components for new routes
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
         path: "movie/:id", // Route dynamique pour les détails du film
         element: <MovieDetails />,
       },
+      {
+        path: "favorites",
+        element: <Favorites />,
+      },
     ],
   },
 ]);
@@ -57,7 +63,9 @@ if (rootElement == null) {
 createRoot(rootElement).render(
   <StrictMode>
     <UserProvider>
-      <RouterProvider router={router} />
+      <Favoriteprovider>
+        <RouterProvider router={router} />
+      </Favoriteprovider>
     </UserProvider>
   </StrictMode>,
 );

@@ -1,22 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import { useEffect, useState } from "react";
-
-interface Movie {
-  image: { medium: string };
-  name: string;
-  description: string;
-  id: number;
-}
+import { useFavorite } from "../Contexts/FavoriteContext";
 
 function Home() {
+  const { favorites, setFavorites, shows } = useFavorite();
+
   const navigate = useNavigate();
 
   const cardClick = (id: number): void => {
     navigate(`/movie/${id}`);
   };
-
-  const [favorites, setFavorites] = useState<number[]>([]);
 
   const toggleLike = (id: number) => {
     if (favorites.includes(id) === true) {
@@ -25,16 +18,6 @@ function Home() {
       setFavorites([...favorites, id]);
     }
   };
-
-  const [shows, setShows] = useState<Movie[]>([]);
-
-  useEffect(() => {
-    fetch("https://api.tvmaze.com/shows")
-      .then((response) => response.json())
-      .then((data) => {
-        setShows(data);
-      });
-  }, []);
 
   return (
     <>
