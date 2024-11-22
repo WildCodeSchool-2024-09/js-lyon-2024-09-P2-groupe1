@@ -52,7 +52,6 @@ function MovieDetails() {
             <strong>Genres :</strong> {movie.genres.join(", ")}
           </p>
           {/* <p>
-            {" "}
             <span dangerouslySetInnerHTML={{ __html: movie.summary }} />
           </p> */}
         </div>

@@ -22,7 +22,7 @@ function Moviecardfavorite() {
             <div className="centerImage">
               <img
                 className="imagefilm"
-                src={movie.image.medium}
+                src={movie.image.original}
                 alt={movie.name}
               />
             </div>
