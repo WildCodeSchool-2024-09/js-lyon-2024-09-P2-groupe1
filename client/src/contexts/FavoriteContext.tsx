@@ -11,7 +11,7 @@ interface FavoriteContextProps {
 }
 
 export interface Movie {
-  image: { medium: string };
+  image: { original: string };
   name: string;
   id: number;
 }

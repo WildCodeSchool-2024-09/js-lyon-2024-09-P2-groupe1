@@ -27,7 +27,7 @@ function Home() {
             <div className="centerImage">
               <img
                 className="imagefilm"
-                src={movie.image.medium}
+                src={movie.image.original}
                 alt={movie.name}
                 onClick={() => cardClick(movie.id)}
                 onKeyDown={() => cardClick(movie.id)}
