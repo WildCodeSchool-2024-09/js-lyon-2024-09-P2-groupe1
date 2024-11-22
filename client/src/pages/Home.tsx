@@ -1,71 +1,52 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import { useEffect, useState } from "react";
-
-interface Movie {
-  image: { medium: string };
-  name: string;
-  description: string;
-  id: number;
-}
+import { useFavorite } from "../Contexts/FavoriteContext";
 
 function Home() {
+  const { favorites, setFavorites, shows } = useFavorite();
+
   const navigate = useNavigate();
 
-  const cardClick = (Lien: string): undefined => {
-    navigate(Lien);
+  const cardClick = (id: number): void => {
+    navigate(`/movie/${id}`);
   };
 
-  const [isLiked, setIsLiked] = useState(false);
-
-  const toggleLike = () => {
-    setIsLiked(!isLiked);
+  const toggleLike = (id: number) => {
+    if (favorites.includes(id) === true) {
+      setFavorites(favorites.filter((AlreadyId) => AlreadyId !== id));
+    } else {
+      setFavorites([...favorites, id]);
+    }
   };
-
-  const [shows, setShows] = useState<Movie[]>([]);
-
-  useEffect(() => {
-    fetch("https://api.tvmaze.com/shows")
-      .then((response) => response.json())
-      .then((data) => {
-        setShows(data);
-      });
-  }, []);
-
-  const link = "link";
 
   return (
     <>
       <section className="card">
-        {shows.slice(0, 12).map((movie, index) => (
-          <figure key={movie.id} className={`item-${index}`}>
+        {shows.slice(0, 12).map((movie) => (
+          <figure key={movie.id} className="item">
             <div className="centerImage">
               <img
                 className="imagefilm"
                 src={movie.image.medium}
                 alt={movie.name}
-                onClick={() => {
-                  cardClick(link);
-                }}
-                onKeyDown={() => {
-                  cardClick(link);
-                }}
+                onClick={() => cardClick(movie.id)}
+                onKeyDown={() => cardClick(movie.id)}
               />
             </div>
             <section className="titleButton">
               <h2
-                onClick={() => {
-                  cardClick(link);
-                }}
-                onKeyDown={() => {
-                  cardClick(link);
-                }}
+                onClick={() => cardClick(movie.id)}
+                onKeyDown={() => cardClick(movie.id)}
                 className="titlefilm"
               >
                 {movie.name}
               </h2>
-              <button type="button" className="star" onClick={toggleLike}>
-                {isLiked === true ? "⭐" : "☆"}
+              <button
+                type="button"
+                className="star"
+                onClick={() => toggleLike(movie.id)}
+              >
+                {favorites.includes(movie.id) === true ? "⭐" : "☆"}
               </button>
             </section>
           </figure>

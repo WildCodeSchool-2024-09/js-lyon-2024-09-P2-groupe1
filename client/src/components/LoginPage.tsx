@@ -1,22 +1,32 @@
 import { useState } from "react";
 import Logo from "../assets/images/Logo_RT.png";
 import "./LoginPage.css";
+import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../Contexts/UserContext";
 
 function LoginPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const { setShowUserLogo } = useUserContext();
+  const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (userName && password) {
+      setShowUserLogo(true);
+      navigate("/");
+    }
     setUserName("");
     setPassword("");
   };
+
   return (
     <section className="loginPage">
       <div className="formulaire">
         <img src={Logo} id="logo1" alt="Logo_Rotten_Tomatoes" />
         <form onSubmit={handleSubmit}>
           <div className="label1">
-            <label htmlFor="identifiant">Identifiant</label>
+            <label htmlFor="identifiant">Username</label>
             <input
               id="identifiant"
               type="text"
@@ -26,7 +36,7 @@ function LoginPage() {
             />
           </div>
           <div className="label2">
-            <label htmlFor="mdp">Mot de passe</label>
+            <label htmlFor="mdp">Password</label>
             <input
               id="mdp"
               type="password"
