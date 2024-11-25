@@ -1,7 +1,7 @@
 import "../pages/Home.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { type Movie, useFavorite } from "../contexts/FavoriteContext";
+import { type Movie, useFavorite } from "../Contexts/FavoriteContext";
 
 function MovieCardFavorite() {
   const { favorites, setFavorites, shows } = useFavorite();
@@ -32,8 +32,8 @@ function MovieCardFavorite() {
   return (
     <>
       <section className="card">
-        {showFavorite.map((movie, index) => (
-          <figure key={movie.id} className={`item-${index}`}>
+        {showFavorite.map((movie) => (
+          <figure key={movie.id} className="item">
             <div className="centerImage">
               <img
                 className="imagefilm"
