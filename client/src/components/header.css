@@ -27,6 +27,10 @@ main {
   transform: scale(1.1);
 }
 
+#username {
+  color: white;
+}
+
 button {
   background: transparent;
   border: none;
@@ -37,7 +41,8 @@ button {
   transition: background-color 0.3s ease;
 }
 
-#Log_In {
+#Log_In,
+#Log_Out {
   background-color: white;
   margin-top: 0;
   color: #bc4b4b;
@@ -48,7 +53,8 @@ button {
   transition: transform 0.3s ease;
 }
 
-#Log_In:hover {
+#Log_In:hover,
+#Log_Out:hover {
   background-color: #e0e0e0;
   transform: scale(1.1);
 }
@@ -58,12 +64,6 @@ button {
   gap: 25px;
   align-items: center;
   padding-right: 4em;
-}
-
-#user {
-  height: 1.6em;
-  background: transparent;
-  border: none;
 }
 
 #home {
@@ -105,4 +105,8 @@ button {
     padding-left: 0.5em;
     transition: 0.3s ease;
   }
+}
+
+#header {
+  color: #e0e0e0;
 }
