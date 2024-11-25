@@ -9,10 +9,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { Favoriteprovider } from "./Contexts/FavoriteContext";
 import { UserProvider } from "./Contexts/UserContext";
-import LoginPage from "./components/LoginPage";
-import MovieDetails from "./components/MovieDetails";
-import Favorites from "./components/favoris";
+import Favorites from "./components/MovieCardFavorite";
 import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+import MovieDetails from "./pages/MovieDetails";
 
 // Import additional components for new routes
 
