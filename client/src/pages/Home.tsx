@@ -41,7 +41,7 @@ function Home() {
       <section className="card">
         {shows
           .filter((val) => {
-            val.name.includes(searchTerm);
+            return val.name.toLowerCase().includes(searchTerm.toLowerCase());
           })
           .slice(0, 12)
           .map((movie) => (
