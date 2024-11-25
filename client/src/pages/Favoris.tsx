@@ -1,9 +1,9 @@
-import Moviecardfavorite from "../components/MovieCardFavorite";
+import MovieCardFavorite from "../components/Moviecardfavorite";
 
 function Favorites() {
   return (
     <>
-      <Moviecardfavorite />
+      <MovieCardFavorite />
     </>
   );
 }

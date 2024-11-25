@@ -9,7 +9,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { Favoriteprovider } from "./Contexts/FavoriteContext";
 import { UserProvider } from "./Contexts/UserContext";
-import Favorites from "./components/MovieCardFavorite";
+import Favorites from "./pages/Favoris";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 import MovieDetails from "./pages/MovieDetails";

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { type Movie, useFavorite } from "../Contexts/FavoriteContext";
 
 function MovieCardFavorite() {
-  const { favorites, shows } = useFavorite();
+  const { favorites, setFavorites, shows } = useFavorite();
 
   const [showFavorite, setShowFavorite] = useState<Movie[]>([]);
 
@@ -15,11 +15,20 @@ function MovieCardFavorite() {
     setShowFavorite(favoriteShows);
   }, [favorites, shows]);
 
+  const toggleLike = (id: number) => {
+    if (favorites.includes(id) === true) {
+      setFavorites(favorites.filter((AlreadyId) => AlreadyId !== id));
+    } else {
+      setFavorites([...favorites, id]);
+    }
+  };
+
   const navigate = useNavigate();
 
   const cardClick = (id: number): void => {
     navigate(`/movie/${id}`);
   };
+
   return (
     <>
       <section className="card">
@@ -42,7 +51,11 @@ function MovieCardFavorite() {
               >
                 {movie.name}
               </h2>
-              <button type="button" className="star">
+              <button
+                type="button"
+                className="star"
+                onClick={() => toggleLike(movie.id)}
+              >
                 {favorites.includes(movie.id) === true ? "⭐" : "☆"}
               </button>
             </section>
