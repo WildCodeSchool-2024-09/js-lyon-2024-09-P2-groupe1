@@ -20,7 +20,8 @@ function Home() {
     }
   };
 
-  const handleSearchTerm = (search) => {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  const handleSearchTerm = (search: { target: { value: any } }) => {
     const value = search.target.value;
     value.length > 2 && setSearchTerm(value);
   };
