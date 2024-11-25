@@ -8,11 +8,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import { UserProvider } from "./Contexts/UserContext";
-import LoginPage from "./components/LoginPage";
-import MovieDetails from "./components/MovieDetails";
-import Favorites from "./components/favoris";
 import { Favoriteprovider } from "./contexts/FavoriteContext";
+import Favorites from "./pages/Favoris";
 import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+import MovieDetails from "./pages/MovieDetails";
 
 // Import additional components for new routes
 
