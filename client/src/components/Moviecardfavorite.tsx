@@ -2,7 +2,7 @@ import "../pages/Home.css";
 import { useEffect, useState } from "react";
 import { type Movie, useFavorite } from "../Contexts/FavoriteContext";
 
-function Moviecardfavorite() {
+function MovieCardFavorite() {
   const { favorites, shows } = useFavorite();
 
   const [showFavorite, setShowFavorite] = useState<Movie[]>([]);
@@ -39,4 +39,4 @@ function Moviecardfavorite() {
   );
 }
 
-export default Moviecardfavorite;
+export default MovieCardFavorite;

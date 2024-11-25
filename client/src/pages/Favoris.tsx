@@ -1,4 +1,4 @@
-import Moviecardfavorite from "./Moviecardfavorite";
+import Moviecardfavorite from "../components/MovieCardFavorite";
 
 function Favorites() {
   return (
