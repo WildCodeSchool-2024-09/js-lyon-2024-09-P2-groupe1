@@ -12,7 +12,6 @@ figure {
 .imagefilm {
   width: 90%;
   margin: 1rem;
-  height: 27rem;
 }
 
 .titlefilm {
@@ -23,6 +22,7 @@ figure {
 .centerImage {
   display: flex;
   justify-content: center;
+  height: 80%;
 }
 
 .titleButton {

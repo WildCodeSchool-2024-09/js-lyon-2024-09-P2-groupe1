@@ -1,8 +1,9 @@
 import "../pages/Home.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { type Movie, useFavorite } from "../Contexts/FavoriteContext";
 
-function Moviecardfavorite() {
+function MovieCardFavorite() {
   const { favorites, setFavorites, shows } = useFavorite();
 
   const [showFavorite, setShowFavorite] = useState<Movie[]>([]);
@@ -22,6 +23,12 @@ function Moviecardfavorite() {
     }
   };
 
+  const navigate = useNavigate();
+
+  const cardClick = (id: number): void => {
+    navigate(`/movie/${id}`);
+  };
+
   return (
     <>
       <section className="card">
@@ -32,10 +39,18 @@ function Moviecardfavorite() {
                 className="imagefilm"
                 src={movie.image.original}
                 alt={movie.name}
+                onClick={() => cardClick(movie.id)}
+                onKeyDown={() => cardClick(movie.id)}
               />
             </div>
             <section className="titleButton">
-              <h2 className="titlefilm">{movie.name}</h2>
+              <h2
+                className="titlefilm"
+                onClick={() => cardClick(movie.id)}
+                onKeyDown={() => cardClick(movie.id)}
+              >
+                {movie.name}
+              </h2>
               <button
                 type="button"
                 className="star"
@@ -51,4 +66,4 @@ function Moviecardfavorite() {
   );
 }
 
-export default Moviecardfavorite;
+export default MovieCardFavorite;
