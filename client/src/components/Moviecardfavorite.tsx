@@ -1,9 +1,10 @@
 import "../pages/Home.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { type Movie, useFavorite } from "../contexts/FavoriteContext";
 
-function Moviecardfavorite() {
-  const { favorites, shows } = useFavorite();
+function MovieCardFavorite() {
+  const { favorites, setFavorites, shows } = useFavorite();
 
   const [showFavorite, setShowFavorite] = useState<Movie[]>([]);
 
@@ -13,6 +14,20 @@ function Moviecardfavorite() {
     );
     setShowFavorite(favoriteShows);
   }, [favorites, shows]);
+
+  const toggleLike = (id: number) => {
+    if (favorites.includes(id) === true) {
+      setFavorites(favorites.filter((AlreadyId) => AlreadyId !== id));
+    } else {
+      setFavorites([...favorites, id]);
+    }
+  };
+
+  const navigate = useNavigate();
+
+  const cardClick = (id: number): void => {
+    navigate(`/movie/${id}`);
+  };
 
   return (
     <>
@@ -24,11 +39,23 @@ function Moviecardfavorite() {
                 className="imagefilm"
                 src={movie.image.original}
                 alt={movie.name}
+                onClick={() => cardClick(movie.id)}
+                onKeyDown={() => cardClick(movie.id)}
               />
             </div>
             <section className="titleButton">
-              <h2 className="titlefilm">{movie.name}</h2>
-              <button type="button" className="star">
+              <h2
+                className="titlefilm"
+                onClick={() => cardClick(movie.id)}
+                onKeyDown={() => cardClick(movie.id)}
+              >
+                {movie.name}
+              </h2>
+              <button
+                type="button"
+                className="star"
+                onClick={() => toggleLike(movie.id)}
+              >
                 {favorites.includes(movie.id) === true ? "⭐" : "☆"}
               </button>
             </section>
@@ -39,4 +66,4 @@ function Moviecardfavorite() {
   );
 }
 
-export default Moviecardfavorite;
+export default MovieCardFavorite;
