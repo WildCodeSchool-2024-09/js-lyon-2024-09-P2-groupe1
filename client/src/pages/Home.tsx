@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import { useFavorite } from "../contexts/FavoriteContext";
+import { useFavorite } from "../Contexts/FavoriteContext";
 
 function Home() {
   const { favorites, setFavorites, shows } = useFavorite();
