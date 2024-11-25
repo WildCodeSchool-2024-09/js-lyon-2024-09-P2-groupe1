@@ -5,18 +5,19 @@ import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../Contexts/UserContext";
 
 function LoginPage() {
-  const [userName, setUserName] = useState("");
+  const [localUserName, setLocalUserName] = useState("");
   const [password, setPassword] = useState("");
-  const { setShowUserLogo } = useUserContext();
+  const { setShowUserLogo, setUserName, setIsLoggedIn } = useUserContext();
   const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    if (userName && password) {
+    if (localUserName && password) {
       setShowUserLogo(true);
+      setUserName(localUserName);
+      setIsLoggedIn(true);
       navigate("/");
     }
-    setUserName("");
+    setLocalUserName("");
     setPassword("");
   };
 
@@ -31,8 +32,8 @@ function LoginPage() {
               id="identifiant"
               type="text"
               required
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
+              value={localUserName}
+              onChange={(e) => setLocalUserName(e.target.value)}
             />
           </div>
           <div className="label2">
