@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import { useState } from "react";
 import { useFavorite } from "../Contexts/FavoriteContext";
 
 function Home() {
@@ -19,38 +20,58 @@ function Home() {
     }
   };
 
+  const handleSearchTerm = (search) => {
+    const value = search.target.value;
+    value.length > 2 && setSearchTerm(value);
+  };
+
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <>
+      <div className="searchBar">
+        <input
+          type="text"
+          name="searchBar"
+          placeholder="Recherche"
+          onChange={handleSearchTerm}
+        />
+      </div>
       <section className="card">
-        {shows.slice(0, 12).map((movie) => (
-          <figure key={movie.id} className="item">
-            <div className="centerImage">
-              <img
-                className="imagefilm"
-                src={movie.image.original}
-                alt={movie.name}
-                onClick={() => cardClick(movie.id)}
-                onKeyDown={() => cardClick(movie.id)}
-              />
-            </div>
-            <section className="titleButton">
-              <h2
-                onClick={() => cardClick(movie.id)}
-                onKeyDown={() => cardClick(movie.id)}
-                className="titlefilm"
-              >
-                {movie.name}
-              </h2>
-              <button
-                type="button"
-                className="star"
-                onClick={() => toggleLike(movie.id)}
-              >
-                {favorites.includes(movie.id) === true ? "⭐" : "☆"}
-              </button>
-            </section>
-          </figure>
-        ))}
+        {shows
+          .filter((val) => {
+            val.name.includes(searchTerm);
+          })
+          .slice(0, 12)
+          .map((movie) => (
+            <figure key={movie.id} className="item">
+              <div className="centerImage">
+                <img
+                  className="imagefilm"
+                  src={movie.image.original}
+                  alt={movie.name}
+                  onClick={() => cardClick(movie.id)}
+                  onKeyDown={() => cardClick(movie.id)}
+                />
+              </div>
+              <section className="titleButton">
+                <h2
+                  onClick={() => cardClick(movie.id)}
+                  onKeyDown={() => cardClick(movie.id)}
+                  className="titlefilm"
+                >
+                  {movie.name}
+                </h2>
+                <button
+                  type="button"
+                  className="star"
+                  onClick={() => toggleLike(movie.id)}
+                >
+                  {favorites.includes(movie.id) === true ? "⭐" : "☆"}
+                </button>
+              </section>
+            </figure>
+          ))}
       </section>
     </>
   );
