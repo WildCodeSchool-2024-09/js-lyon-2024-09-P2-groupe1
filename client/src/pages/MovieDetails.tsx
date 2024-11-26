@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import LeftArrow from "../assets/images/left-arrow.png";
 import "./MovieDetails.css";
 import { Link } from "react-router-dom";
+import { useFavorite } from "../Contexts/FavoriteContext";
 
 interface MovieDetailsData {
   name: string;
@@ -16,6 +17,7 @@ interface MovieDetailsData {
 function MovieDetails() {
   const { id } = useParams<{ id: string }>();
   const [movie, setMovie] = useState<MovieDetailsData | null>(null);
+  const { favorites, setFavorites } = useFavorite();
 
   useEffect(() => {
     if (id) {
@@ -31,6 +33,16 @@ function MovieDetails() {
     return <p>Loading...</p>;
   }
 
+  const toggleFavorite = (movieId: number) => {
+    if (favorites.includes(movieId)) {
+      setFavorites(favorites.filter((id) => id !== movieId));
+    } else {
+      setFavorites([...favorites, movieId]);
+    }
+  };
+  const movieId = id ? Number(id) : null;
+
+  const isFavorite = movieId !== null && favorites.includes(movieId);
   return (
     <section className="movie-details">
       <section className="movie-card">
@@ -51,9 +63,15 @@ function MovieDetails() {
           <p>
             <strong>Genres :</strong> {movie.genres.join(", ")}
           </p>
-          {/* <p>
-            <span dangerouslySetInnerHTML={{ __html: movie.summary }} />
-          </p> */}
+          <div id="star-position">
+            {/* <p id="summary">
+              <span dangerouslySetInnerHTML={{ __html: movie.summary }} />
+            </p> */}
+            {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+            <button id="star-button" onClick={() => toggleFavorite(Number(id))}>
+              {isFavorite ? "⭐" : "☆"}
+            </button>
+          </div>
         </div>
       </section>
       <section id="ButtonBackSection">
