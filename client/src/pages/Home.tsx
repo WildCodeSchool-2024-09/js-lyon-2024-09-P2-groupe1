@@ -1,9 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import { useState } from "react";
+import Pagination from "../components/Pagination";
+
 import { useFavorite } from "../Contexts/FavoriteContext";
 
 function Home() {
   const { favorites, setFavorites, shows } = useFavorite();
+
+  const [pageActuelle, setPageActuelle] = useState(1);
+  const showsParPage = 12;
+
+  const indexDebut = (pageActuelle - 1) * showsParPage;
+  const indexFin = indexDebut + showsParPage;
 
   const navigate = useNavigate();
 
@@ -22,7 +31,7 @@ function Home() {
   return (
     <>
       <section className="card">
-        {shows.slice(0, 12).map((movie) => (
+        {shows.slice(indexDebut, indexFin).map((movie) => (
           <figure key={movie.id} className="item">
             <div className="centerImage">
               <img
@@ -52,6 +61,11 @@ function Home() {
           </figure>
         ))}
       </section>
+      <Pagination
+        pageActuelle={pageActuelle}
+        totalPages={Math.ceil(shows.length / showsParPage)}
+        onPageChange={setPageActuelle}
+      />
     </>
   );
 }

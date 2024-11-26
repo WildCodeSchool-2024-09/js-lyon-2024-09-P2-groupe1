@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 2em;
+}
+
+h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  transition: color 0.3s ease;
+}
+
+button:hover h4 {
+  color: black;
+}
+
+.buttonpagination {
+  height: 3em;
+  transition: transform 0.3s ease;
+  margin-bottom: 0.5em;
+}
+
+.buttonpagination:hover {
+  transform: scale(1.3);
+}
