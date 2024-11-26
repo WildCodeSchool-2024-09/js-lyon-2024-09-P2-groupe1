@@ -30,11 +30,12 @@ function Home() {
 
   return (
     <>
-      <div className="searchBar">
+      <div className="searchBarContainer">
         <input
           type="text"
           name="searchBar"
-          placeholder="Recherche"
+          placeholder="Search"
+          className="searchBar"
           onChange={handleSearchTerm}
         />
       </div>
