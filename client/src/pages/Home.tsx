@@ -20,10 +20,10 @@ function Home() {
     }
   };
 
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  const handleSearchTerm = (search: { target: { value: any } }) => {
+  const handleSearchTerm = (search: React.ChangeEvent<HTMLInputElement>) => {
     const value = search.target.value;
-    value.length > 2 && setSearchTerm(value);
+    value.length >= 1 && setSearchTerm(value);
+    value.length === 0 && setSearchTerm("");
   };
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -40,9 +40,9 @@ function Home() {
       </div>
       <section className="card">
         {shows
-          .filter((val) => {
-            return val.name.toLowerCase().includes(searchTerm.toLowerCase());
-          })
+          .filter((val) =>
+            val.name.toLowerCase().includes(searchTerm.toLowerCase()),
+          )
           .slice(0, 12)
           .map((movie) => (
             <figure key={movie.id} className="item">
