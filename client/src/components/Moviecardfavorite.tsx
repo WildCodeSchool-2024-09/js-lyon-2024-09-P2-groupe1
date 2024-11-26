@@ -32,8 +32,8 @@ function MovieCardFavorite() {
   return (
     <>
       <section className="card">
-        {showFavorite.map((movie, index) => (
-          <figure key={movie.id} className={`item-${index}`}>
+        {showFavorite.map((movie) => (
+          <figure key={movie.id} className="item">
             <div className="centerImage">
               <img
                 className="imagefilm"
