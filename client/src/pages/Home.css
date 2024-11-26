@@ -91,6 +91,17 @@ figure {
   border-color: lightgray;
 }
 
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.searchBar {
+  margin-top: 2rem;
+  width: 80%;
+  box-shadow: 2px 2px 2px 2px #6e6e6e;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .card {
     display: grid;
@@ -144,5 +155,10 @@ figure {
   .card {
     display: flex;
     flex-direction: column;
+  }
+
+  .searchBar {
+    width: 80%;
+    margin-top: 0;
   }
 }
