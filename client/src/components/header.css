@@ -8,10 +8,6 @@ button {
   transition: background-color 0.3s ease;
 }
 
-main {
-  margin-top: 8em;
-}
-
 .header {
   position: fixed;
   top: 0;
@@ -42,6 +38,31 @@ main {
 
 #home:hover {
   transform: scale(1.2);
+}
+
+.icon-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.icon-label {
+  position: absolute;
+  bottom: -0.1em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.icon-container:hover .icon-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  top: 60px;
 }
 
 #Log_In,
@@ -83,9 +104,8 @@ main {
 #username {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-style: italic;
-  font-weight: bold;
 }
 
 #star {
@@ -100,6 +120,12 @@ main {
 
 #star:hover {
   transform: scale(1.2);
+}
+
+#title-favorite {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 @media (max-width: 768px) {
