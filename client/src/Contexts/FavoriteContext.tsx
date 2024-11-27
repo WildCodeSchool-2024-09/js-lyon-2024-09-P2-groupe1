@@ -10,7 +10,7 @@ interface FavoriteContextProps {
   children: ReactNode;
 }
 
-export interface Movie {
+export interface Show {
   image: { original: string };
   name: string;
   id: number;
@@ -19,8 +19,8 @@ export interface Movie {
 interface FavoriteContextType {
   favorites: number[];
   setFavorites: React.Dispatch<React.SetStateAction<number[]>>;
-  shows: Movie[];
-  setShows: React.Dispatch<React.SetStateAction<Movie[]>>;
+  shows: Show[];
+  setShows: React.Dispatch<React.SetStateAction<Show[]>>;
 }
 
 const FavoriteContext = createContext<FavoriteContextType | null>(null);
@@ -28,7 +28,7 @@ const FavoriteContext = createContext<FavoriteContextType | null>(null);
 export function Favoriteprovider({ children }: FavoriteContextProps) {
   const [favorites, setFavorites] = useState<number[]>([]);
 
-  const [shows, setShows] = useState<Movie[]>([]);
+  const [shows, setShows] = useState<Show[]>([]);
 
   useEffect(() => {
     fetch("https://api.tvmaze.com/shows")

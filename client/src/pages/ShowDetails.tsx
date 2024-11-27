@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LeftArrow from "../assets/images/left-arrow.png";
-import "./MovieDetails.css";
+import "./ShowDetails.css";
 import { Link } from "react-router-dom";
 import { useFavorite } from "../Contexts/FavoriteContext";
 
-interface MovieDetailsData {
+interface ShowDetailsData {
   name: string;
   image: { original: string };
   premiered: string;
@@ -14,9 +14,9 @@ interface MovieDetailsData {
   genres: string[];
 }
 
-function MovieDetails() {
+function ShowDetails() {
   const { id } = useParams<{ id: string }>();
-  const [movie, setMovie] = useState<MovieDetailsData | null>(null);
+  const [show, setShow] = useState<ShowDetailsData | null>(null);
   const { favorites, setFavorites } = useFavorite();
 
   useEffect(() => {
@@ -24,51 +24,54 @@ function MovieDetails() {
       fetch(`https://api.tvmaze.com/shows/${id}`)
         .then((response) => response.json())
         .then((data) => {
-          setMovie(data);
+          setShow(data);
         });
     }
   }, [id]);
 
-  if (!movie) {
+  if (!show) {
     return <p>Loading...</p>;
   }
 
-  const toggleFavorite = (movieId: number) => {
-    if (favorites.includes(movieId)) {
-      setFavorites(favorites.filter((id) => id !== movieId));
+  const toggleFavorite = (showId: number) => {
+    if (favorites.includes(showId)) {
+      setFavorites(favorites.filter((id) => id !== showId));
     } else {
-      setFavorites([...favorites, movieId]);
+      setFavorites([...favorites, showId]);
     }
   };
-  const movieId = id ? Number(id) : null;
+  const showId = id ? Number(id) : null;
 
-  const isFavorite = movieId !== null && favorites.includes(movieId);
+  const isFavorite = showId !== null && favorites.includes(showId);
   return (
-    <section className="movie-details">
-      <section className="movie-card">
+    <section className="show-details">
+      <section className="show-card">
         <img
-          src={movie.image.original}
-          alt={movie.name}
-          className="movie-poster"
+          src={show.image.original}
+          alt={show.name}
+          className="show-poster"
         />
-        <div className="movie-info">
-          <h1>{movie.name}</h1>
+        <div className="show-info">
+          <h1>{show.name}</h1>
           <p>
             <strong>Release date :</strong>{" "}
-            {new Date(movie.premiered).getFullYear()}
+            {new Date(show.premiered).getFullYear()}
           </p>
           <p>
-            <strong>Country :</strong> {movie.network?.country.name}
+            <strong>Country :</strong> {show.network?.country.name}
           </p>
           <p>
-            <strong>Genres :</strong> {movie.genres.join(", ")}
+            <strong>Genres :</strong> {show.genres.join(", ")}
           </p>
           <div id="star-position">
             {/* <p id="summary">
-              <span dangerouslySetInnerHTML={{ __html: movie.summary }} />
+              <span dangerouslySetInnerHTML={{ __html: show.summary }} />
             </p> */}
-            {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-            <button id="star-button" onClick={() => toggleFavorite(Number(id))}>
+            <button
+              type="button"
+              id="star-button"
+              onClick={() => toggleFavorite(Number(id))}
+            >
               {isFavorite ? "⭐" : "☆"}
             </button>
           </div>
@@ -85,4 +88,4 @@ function MovieDetails() {
   );
 }
 
-export default MovieDetails;
+export default ShowDetails;

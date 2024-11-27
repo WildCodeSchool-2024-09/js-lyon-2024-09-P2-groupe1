@@ -12,7 +12,7 @@ import { UserProvider } from "./Contexts/UserContext";
 import Favorites from "./pages/Favoris";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
-import MovieDetails from "./pages/MovieDetails";
+import ShowDetails from "./pages/ShowDetails";
 
 // Import additional components for new routes
 
@@ -40,8 +40,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "movie/:id", // Route dynamique pour les détails du film
-        element: <MovieDetails />,
+        path: "show/:id", // Route dynamique pour les détails du film
+        element: <ShowDetails />,
       },
       {
         path: "favorites",

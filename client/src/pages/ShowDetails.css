@@ -26,14 +26,14 @@ img#BackButton:hover {
   transform: scale(1.2);
 }
 
-.movie-details {
+.show-details {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.movie-summary {
+.show-summary {
   display: flex;
   flex-direction: column;
   gap: 15px; /* Space between summary and star button */
@@ -44,7 +44,7 @@ img#BackButton:hover {
   font-size: large;
 }
 
-.movie-card {
+.show-card {
   margin-top: 10em;
   background-color: lightgrey;
   border-radius: 1em;
@@ -61,28 +61,28 @@ h2 {
   text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.2);
 }
 
-.movie-info {
+.show-info {
   padding-left: 1em;
   padding-right: 1em;
   padding-bottom: 4%;
 }
 
-.movie-info > .last-child {
+.show-info > .last-child {
   align-self: flex-end;
   margin-top: auto;
 }
 
 @media screen and (min-width: 768px) {
-  .movie-card {
+  .show-card {
     display: flex;
   }
 
-  .movie-poster {
+  .show-poster {
     height: 36.5em;
     padding: 1em;
     border-radius: 2em;
   }
-  .movie-info {
+  .show-info {
     padding-right: 4em;
   }
 
@@ -100,7 +100,7 @@ h2 {
     object-fit: contain;
   }
 
-  .movie-poster {
+  .show-poster {
     width: -webkit-fill-available;
     padding: 1em;
     border-radius: 2em;
