@@ -4,6 +4,7 @@ import { useState } from "react";
 import Pagination from "../components/Pagination";
 
 import { useFavorite } from "../Contexts/FavoriteContext";
+import SearchBar from "../components/searchBar";
 
 function Home() {
   const { favorites, setFavorites, shows } = useFavorite();
@@ -28,25 +29,11 @@ function Home() {
     }
   };
 
-  const handleSearchTerm = (search: React.ChangeEvent<HTMLInputElement>) => {
-    const value = search.target.value;
-    value.length >= 1 && setSearchTerm(value);
-    value.length === 0 && setSearchTerm("");
-  };
-
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <>
-      <div className="searchBarContainer">
-        <input
-          type="text"
-          name="searchBar"
-          placeholder="Search"
-          className="searchBar"
-          onChange={handleSearchTerm}
-        />
-      </div>
+      <SearchBar onSearch={setSearchTerm} />
       <section className="card">
         {shows
           .filter((val) =>

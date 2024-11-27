@@ -32,6 +32,7 @@ function LoginPage() {
             <Input
               type="text"
               id="identifiant"
+              placeholder="username"
               value={localUserName}
               onChange={(e) => setLocalUserName(e.target.value)}
               required
@@ -41,6 +42,7 @@ function LoginPage() {
             <label htmlFor="mdp">Password</label>
             <input
               id="password"
+              placeholder="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -48,7 +50,7 @@ function LoginPage() {
             />
           </div>
           <button type="submit" className="Homebutton">
-            Se Connecter
+            Connect
           </button>
         </form>
       </div>
