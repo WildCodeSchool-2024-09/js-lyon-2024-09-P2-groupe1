@@ -1,15 +1,15 @@
 import "../pages/Home.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { type Movie, useFavorite } from "../Contexts/FavoriteContext";
+import { type Show, useFavorite } from "../Contexts/FavoriteContext";
 
-function MovieCardFavorite() {
+function ShowCardFavorite() {
   const { favorites, setFavorites, shows } = useFavorite();
 
-  const [showFavorite, setShowFavorite] = useState<Movie[]>([]);
+  const [ShowFavorite, setShowFavorite] = useState<Show[]>([]);
 
   useEffect(() => {
-    const favoriteShows: Movie[] = shows.filter((show) =>
+    const favoriteShows: Show[] = shows.filter((show) =>
       favorites.includes(show.id),
     );
     setShowFavorite(favoriteShows);
@@ -26,37 +26,37 @@ function MovieCardFavorite() {
   const navigate = useNavigate();
 
   const cardClick = (id: number): void => {
-    navigate(`/movie/${id}`);
+    navigate(`/show/${id}`);
   };
 
   return (
     <>
       <section className="card">
-        {showFavorite.map((movie) => (
-          <figure key={movie.id} className="item">
+        {ShowFavorite.map((show) => (
+          <figure key={show.id} className="item">
             <div className="centerImage">
               <img
                 className="imagefilm"
-                src={movie.image.original}
-                alt={movie.name}
-                onClick={() => cardClick(movie.id)}
-                onKeyDown={() => cardClick(movie.id)}
+                src={show.image.original}
+                alt={show.name}
+                onClick={() => cardClick(show.id)}
+                onKeyDown={() => cardClick(show.id)}
               />
             </div>
             <section className="titleButton">
               <h2
                 className="titlefilm"
-                onClick={() => cardClick(movie.id)}
-                onKeyDown={() => cardClick(movie.id)}
+                onClick={() => cardClick(show.id)}
+                onKeyDown={() => cardClick(show.id)}
               >
-                {movie.name}
+                {show.name}
               </h2>
               <button
                 type="button"
                 className="star"
-                onClick={() => toggleLike(movie.id)}
+                onClick={() => toggleLike(show.id)}
               >
-                {favorites.includes(movie.id) === true ? "⭐" : "☆"}
+                {favorites.includes(show.id) === true ? "⭐" : "☆"}
               </button>
             </section>
           </figure>
@@ -66,4 +66,4 @@ function MovieCardFavorite() {
   );
 }
 
-export default MovieCardFavorite;
+export default ShowCardFavorite;
