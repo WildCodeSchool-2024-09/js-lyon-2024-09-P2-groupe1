@@ -1,22 +1,7 @@
-figure {
-  background-color: #edede9;
-  margin: 3rem;
-}
-
 .card {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-}
-
-.imagefilm {
-  width: 90%;
-  margin: 1rem;
-}
-
-.titlefilm {
-  color: black;
-  font-size: 1.2rem;
 }
 
 .centerImage {
@@ -25,58 +10,9 @@ figure {
   height: 80%;
 }
 
-.titleButton {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 20px;
-}
-
-.star {
-  font-size: 2rem;
-  margin-top: 0;
-}
-
-.item-0 {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-
-.item-1 {
-  grid-column-start: 2;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-
-.item-2 {
-  grid-column-start: 3;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-
-.item-3 {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
-
-.item-4 {
-  grid-column-start: 2;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
-
-.item-5 {
-  grid-column-start: 3;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 2;
+.imageShow {
+  width: 90%;
+  margin: 1rem;
 }
 
 .item {
@@ -84,6 +20,8 @@ figure {
   box-shadow: 5px 5px 12px 2px #6e6e6e;
   border: 2px solid transparent;
   transition: border-color 0.3s ease, transform 0.3s ease;
+  background-color: #edede9;
+  margin: 3rem;
 }
 
 .item:hover {
@@ -102,52 +40,28 @@ figure {
   box-shadow: 2px 2px 2px 2px #6e6e6e;
 }
 
+.star {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.titleButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.titleShow {
+  color: black;
+  font-size: 1.2rem;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-  }
-  .item-0 {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 1;
-    grid-row-end: 1;
-  }
-
-  .item-1 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
-  }
-
-  .item-2 {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 2;
-    grid-row-end: 2;
-  }
-
-  .item-3 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
-  }
-
-  .item-4 {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 3;
-    grid-row-end: 3;
-  }
-
-  .item-5 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 3;
-    grid-row-end: 3;
   }
 }
 

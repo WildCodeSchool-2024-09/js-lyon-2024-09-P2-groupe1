@@ -1,13 +1,3 @@
-.footer {
-  background-color: #bc4b4b;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: -1em;
-  margin-right: -1em;
-  margin-left: -1em;
-}
-
 h2 {
   color: white;
   font-size: small;
@@ -24,11 +14,14 @@ h3 {
   text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.1);
 }
 
-#networks {
+.footer {
+  background-color: #bc4b4b;
   display: flex;
-  margin-bottom: 1.5em;
-  gap: 1em;
-  padding-right: 3em;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -1em;
+  margin-right: -1em;
+  margin-left: -1em;
 }
 
 img#IG,
@@ -42,4 +35,11 @@ img#IG:hover,
 img#FB:hover,
 img#X:hover {
   transform: scale(1.5);
+}
+
+#networks {
+  display: flex;
+  margin-bottom: 1.5em;
+  gap: 1em;
+  padding-right: 3em;
 }
