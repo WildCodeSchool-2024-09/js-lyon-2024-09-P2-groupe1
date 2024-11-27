@@ -3,6 +3,7 @@ import Logo from "../assets/images/Logo_RT.png";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../Contexts/UserContext";
+import Input from "../components/ui/input";
 
 function LoginPage() {
   const [localUserName, setLocalUserName] = useState("");
@@ -28,22 +29,22 @@ function LoginPage() {
         <form onSubmit={handleSubmit}>
           <div className="label1">
             <label htmlFor="identifiant">Username</label>
-            <input
-              id="identifiant"
+            <Input
               type="text"
-              required
+              id="identifiant"
               value={localUserName}
               onChange={(e) => setLocalUserName(e.target.value)}
+              required
             />
           </div>
           <div className="label2">
             <label htmlFor="mdp">Password</label>
             <input
-              id="mdp"
+              id="password"
               type="password"
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <button type="submit" className="Homebutton">
