@@ -36,7 +36,7 @@ function ShowCardFavorite() {
           <figure key={show.id} className="item">
             <div className="centerImage">
               <img
-                className="imagefilm"
+                className="imageShow"
                 src={show.image.original}
                 alt={show.name}
                 onClick={() => cardClick(show.id)}
@@ -45,7 +45,7 @@ function ShowCardFavorite() {
             </div>
             <section className="titleButton">
               <h2
-                className="titlefilm"
+                className="titleShow"
                 onClick={() => cardClick(show.id)}
                 onKeyDown={() => cardClick(show.id)}
               >
