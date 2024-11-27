@@ -56,7 +56,16 @@ function ShowDetails() {
           className="show-poster"
         />
         <div className="show-info">
-          <h1>{show.name}</h1>
+          <div id="title-favorite">
+            <h1>{show.name}</h1>
+            <button
+              type="button"
+              id="star-button"
+              onClick={() => toggleFavorite(Number(id))}
+            >
+              {isFavorite ? "⭐" : "☆"}
+            </button>
+          </div>
           <p>
             <strong>Release date :</strong>{" "}
             {new Date(show.premiered).getFullYear()}
@@ -71,14 +80,6 @@ function ShowDetails() {
             <p id="summary">
               <MovieSummary summary={show.summary} />
             </p>
-
-            <button
-              type="button"
-              id="star-button"
-              onClick={() => toggleFavorite(Number(id))}
-            >
-              {isFavorite ? "⭐" : "☆"}
-            </button>
           </div>
         </div>
       </section>
