@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "movie/:id",
+        path: "show/:id", // Route dynamique pour les détails du film
         element: <ShowDetails />,
       },
       {

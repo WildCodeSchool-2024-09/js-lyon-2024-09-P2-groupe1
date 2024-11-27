@@ -17,7 +17,7 @@ function Home() {
   const navigate = useNavigate();
 
   const cardClick = (id: number): void => {
-    navigate(`/movie/${id}`);
+    navigate(`/show/${id}`);
   };
 
   const toggleLike = (id: number) => {
@@ -53,31 +53,31 @@ function Home() {
             val.name.toLowerCase().includes(searchTerm.toLowerCase()),
           )
           .slice(indexDebut, indexFin)
-          .map((movie) => (
-            <figure key={movie.id} className="item">
+          .map((show) => (
+            <figure key={show.id} className="item">
               <div className="centerImage">
                 <img
-                  className="imagefilm"
-                  src={movie.image.original}
-                  alt={movie.name}
-                  onClick={() => cardClick(movie.id)}
-                  onKeyDown={() => cardClick(movie.id)}
+                  className="imageShow"
+                  src={show.image.original}
+                  alt={show.name}
+                  onClick={() => cardClick(show.id)}
+                  onKeyDown={() => cardClick(show.id)}
                 />
               </div>
               <section className="titleButton">
                 <h2
-                  onClick={() => cardClick(movie.id)}
-                  onKeyDown={() => cardClick(movie.id)}
-                  className="titlefilm"
+                  onClick={() => cardClick(show.id)}
+                  onKeyDown={() => cardClick(show.id)}
+                  className="titleShow"
                 >
-                  {movie.name}
+                  {show.name}
                 </h2>
                 <button
                   type="button"
                   className="star"
-                  onClick={() => toggleLike(movie.id)}
+                  onClick={() => toggleLike(show.id)}
                 >
-                  {favorites.includes(movie.id) === true ? "⭐" : "☆"}
+                  {favorites.includes(show.id) === true ? "⭐" : "☆"}
                 </button>
               </section>
             </figure>
