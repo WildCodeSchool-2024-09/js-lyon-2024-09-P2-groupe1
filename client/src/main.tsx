@@ -10,7 +10,7 @@ import App from "./App";
 import { Favoriteprovider } from "./Contexts/FavoriteContext";
 import { UserProvider } from "./Contexts/UserContext";
 import Favorites from "./pages/Favoris";
-import Home from "./pages/Home";
+import Home from "./components/Home";
 import LoginPage from "./pages/LoginPage";
 import ShowDetails from "./pages/ShowDetails";
 
