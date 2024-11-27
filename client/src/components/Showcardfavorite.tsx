@@ -6,7 +6,7 @@ import { type Show, useFavorite } from "../Contexts/FavoriteContext";
 function ShowCardFavorite() {
   const { favorites, setFavorites, shows } = useFavorite();
 
-  const [showFavorite, setShowFavorite] = useState<Show[]>([]);
+  const [ShowFavorite, setShowFavorite] = useState<Show[]>([]);
 
   useEffect(() => {
     const favoriteShows: Show[] = shows.filter((show) =>
@@ -32,11 +32,11 @@ function ShowCardFavorite() {
   return (
     <>
       <section className="card">
-        {showFavorite.map((show) => (
+        {ShowFavorite.map((show) => (
           <figure key={show.id} className="item">
             <div className="centerImage">
               <img
-                className="imageShow"
+                className="imagefilm"
                 src={show.image.original}
                 alt={show.name}
                 onClick={() => cardClick(show.id)}
@@ -45,7 +45,7 @@ function ShowCardFavorite() {
             </div>
             <section className="titleButton">
               <h2
-                className="titleShow"
+                className="titlefilm"
                 onClick={() => cardClick(show.id)}
                 onKeyDown={() => cardClick(show.id)}
               >

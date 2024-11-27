@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LeftArrow from "../assets/images/left-arrow.png";
 import "./ShowDetails.css";
+import parse from "html-react-parser";
 import { Link } from "react-router-dom";
 import { useFavorite } from "../Contexts/FavoriteContext";
 
@@ -16,15 +17,18 @@ interface ShowDetailsData {
 
 function ShowDetails() {
   const { id } = useParams<{ id: string }>();
-  const [show, setShow] = useState<ShowDetailsData | null>(null);
+  const [show, setMovie] = useState<ShowDetailsData | null>(null);
   const { favorites, setFavorites } = useFavorite();
+  const MovieSummary = ({ summary }: { summary: string }) => {
+    return <div>{parse(summary)}</div>;
+  };
 
   useEffect(() => {
     if (id) {
       fetch(`https://api.tvmaze.com/shows/${id}`)
         .then((response) => response.json())
         .then((data) => {
-          setShow(data);
+          setMovie(data);
         });
     }
   }, [id]);
@@ -64,9 +68,10 @@ function ShowDetails() {
             <strong>Genres :</strong> {show.genres.join(", ")}
           </p>
           <div id="star-position">
-            {/* <p id="summary">
-              <span dangerouslySetInnerHTML={{ __html: show.summary }} />
-            </p> */}
+            <p id="summary">
+              <MovieSummary summary={show.summary} />
+            </p>
+
             <button
               type="button"
               id="star-button"
@@ -77,10 +82,10 @@ function ShowDetails() {
           </div>
         </div>
       </section>
-      <section id="ButtonBackSection">
+      <section id="back-button-section">
         <Link to="/" style={{ textDecoration: "none" }}>
           <button type="button">
-            <img src={LeftArrow} alt="Retour en arrière" id="BackButton" />
+            <img src={LeftArrow} alt="Retour en arrière" id="back-button" />
           </button>
         </Link>
       </section>
