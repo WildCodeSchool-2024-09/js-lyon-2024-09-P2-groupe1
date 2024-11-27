@@ -44,7 +44,7 @@
 }
 
 .searchBar {
-  margin-top: 2rem;
+  margin-top: 10rem;
   width: 80%;
   box-shadow: 2px 2px 2px 2px #6e6e6e;
 }
@@ -87,6 +87,6 @@
 
   .searchBar {
     width: 80%;
-    margin-top: 0;
+    margin-top: 8rem;
   }
 }
