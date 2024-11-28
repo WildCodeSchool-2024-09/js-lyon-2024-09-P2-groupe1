@@ -2,6 +2,7 @@ import "../pages/Home.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { type Show, useFavorite } from "../Contexts/FavoriteContext";
+import Star from "./Star";
 
 function ShowCardFavorite() {
   const { favorites, setFavorites, shows } = useFavorite();
@@ -56,13 +57,11 @@ function ShowCardFavorite() {
                   >
                     {show.name}
                   </h2>
-                  <button
-                    type="button"
-                    className="star"
-                    onClick={() => toggleLike(show.id)}
-                  >
-                    {favorites.includes(show.id) ? "⭐" : "☆"}
-                  </button>
+                  <Star
+                    toggleLike={toggleLike}
+                    favorites={favorites}
+                    showID={show.id}
+                  />
                 </section>
               </figure>
             ))}

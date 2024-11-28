@@ -1,4 +1,5 @@
 import "../pages/Home.css";
+import Star from "../components/Star";
 
 interface Show {
   id: number;
@@ -53,13 +54,11 @@ function ShowCard({
               >
                 {show.name}
               </h2>
-              <button
-                type="button"
-                className="star"
-                onClick={() => toggleLike(show.id)}
-              >
-                {favorites.includes(show.id) === true ? "⭐" : "☆"}
-              </button>
+              <Star
+                toggleLike={toggleLike}
+                favorites={favorites}
+                showID={show.id}
+              />
             </section>
           </figure>
         ))}
