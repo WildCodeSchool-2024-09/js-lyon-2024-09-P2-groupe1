@@ -10,7 +10,7 @@ import App from "./App";
 import { Favoriteprovider } from "./Contexts/FavoriteContext";
 import { UserProvider } from "./Contexts/UserContext";
 import Favorites from "./pages/Favoris";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 import ShowDetails from "./pages/ShowDetails";
 
@@ -36,11 +36,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "",
+        path: "/",
         element: <Home />,
       },
       {
-        path: "show/:id", // Route dynamique pour les détails du film
+        path: "show/:id",
         element: <ShowDetails />,
       },
       {

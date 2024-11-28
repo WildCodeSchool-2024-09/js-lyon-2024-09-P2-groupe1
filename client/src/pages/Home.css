@@ -1,7 +1,6 @@
 .card {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
 }
 
 .centerImage {
@@ -10,7 +9,7 @@
   height: 80%;
 }
 
-#favorites-title {
+.favorites-title {
   color: #bc4b4b;
   padding-top: 9rem;
   text-align: center;
@@ -22,6 +21,7 @@
 .imageShow {
   width: 90%;
   margin: 1rem;
+  border-radius: 3%;
 }
 
 .item {
@@ -38,6 +38,13 @@
   border-color: lightgray;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .searchBarContainer {
   display: flex;
   justify-content: center;
@@ -45,8 +52,21 @@
 
 .searchBar {
   margin-top: 10rem;
+  height: 1em;
   width: 80%;
-  box-shadow: 2px 2px 2px 2px #6e6e6e;
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 1px 1px lightgray;
+  background-color: rgb(236, 234, 234);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchBar:focus {
+  outline: none;
+  border-color: #bc4b4b;
+}
+
+.searchBar:hover {
+  border-color: #bc4b4b;
 }
 
 .star {
