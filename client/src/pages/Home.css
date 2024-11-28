@@ -1,7 +1,6 @@
 .card {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
 }
 
 .centerImage {
@@ -10,7 +9,7 @@
   height: 80%;
 }
 
-#favorites-title {
+.favorites-title {
   color: #bc4b4b;
   padding-top: 9rem;
   text-align: center;

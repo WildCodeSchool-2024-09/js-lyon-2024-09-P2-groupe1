@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import { useState } from "react";
-import Pagination from "../components/Pagination";
-
 import { useFavorite } from "../Contexts/FavoriteContext";
+import Pagination from "../components/Pagination";
 import SearchBar from "../components/searchBar";
 
 function Home() {

@@ -36,11 +36,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "",
+        path: "/",
         element: <Home />,
       },
       {
-        path: "show/:id", // Route dynamique pour les détails du film
+        path: "show/:id",
         element: <ShowDetails />,
       },
       {

@@ -29,7 +29,7 @@ function Header() {
       </Link>
       <div id="navbar">
         {showUserLogo && (
-          <p id="username">Welcome {userName}, you are connected 🍅</p>
+          <p id="username">Welcome {userName}, you are logged !</p>
         )}
         <div className="icon-container">
           <Link to="/">
