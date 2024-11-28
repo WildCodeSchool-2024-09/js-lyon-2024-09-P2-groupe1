@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path: "show/:id",
-        element: <ShowDetails />,
+        element: <ShowDetails />, //Route dynamique via l'id sur la page ShowDetails
       },
       {
         path: "favorites",
