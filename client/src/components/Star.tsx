@@ -7,6 +7,7 @@ interface StarProps {
 }
 
 function Star({ toggleLike, favorites, showID }: StarProps) {
+  // composant pour le bouton d'ajout aux favoris
   return (
     <button type="button" className="star" onClick={() => toggleLike(showID)}>
       {favorites.includes(showID) === true ? "⭐" : "☆"}
