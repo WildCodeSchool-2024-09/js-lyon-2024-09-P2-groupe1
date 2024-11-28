@@ -31,37 +31,44 @@ function ShowCardFavorite() {
 
   return (
     <>
-      <section className="card">
-        {ShowFavorite.map((show) => (
-          <figure key={show.id} className="item">
-            <div className="centerImage">
-              <img
-                className="imageShow"
-                src={show.image.original}
-                alt={show.name}
-                onClick={() => cardClick(show.id)}
-                onKeyDown={() => cardClick(show.id)}
-              />
-            </div>
-            <section className="titleButton">
-              <h2
-                className="titleShow"
-                onClick={() => cardClick(show.id)}
-                onKeyDown={() => cardClick(show.id)}
-              >
-                {show.name}
-              </h2>
-              <button
-                type="button"
-                className="star"
-                onClick={() => toggleLike(show.id)}
-              >
-                {favorites.includes(show.id) === true ? "⭐" : "☆"}
-              </button>
-            </section>
-          </figure>
-        ))}
-      </section>
+      {ShowFavorite.length === 0 ? (
+        <h1 className="favorites-title">NO FAV🍅RITES</h1>
+      ) : (
+        <>
+          <h1 className="favorites-title">YOUR FAV🍅RITES</h1>
+          <section className="card">
+            {ShowFavorite.map((show) => (
+              <figure key={show.id} className="item">
+                <div className="centerImage">
+                  <img
+                    className="imageShow"
+                    src={show.image.original}
+                    alt={show.name}
+                    onClick={() => cardClick(show.id)}
+                    onKeyDown={() => cardClick(show.id)}
+                  />
+                </div>
+                <section className="titleButton">
+                  <h2
+                    className="titleShow"
+                    onClick={() => cardClick(show.id)}
+                    onKeyDown={() => cardClick(show.id)}
+                  >
+                    {show.name}
+                  </h2>
+                  <button
+                    type="button"
+                    className="star"
+                    onClick={() => toggleLike(show.id)}
+                  >
+                    {favorites.includes(show.id) ? "⭐" : "☆"}
+                  </button>
+                </section>
+              </figure>
+            ))}
+          </section>
+        </>
+      )}
     </>
   );
 }
