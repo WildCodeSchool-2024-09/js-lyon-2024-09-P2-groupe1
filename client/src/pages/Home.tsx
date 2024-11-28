@@ -7,7 +7,7 @@ import SearchBar from "../components/searchBar";
 import ShowCard from "./Showcard";
 
 function Home() {
-  const { favorites, setFavorites, shows } = useFavorite();
+  const { favorites, shows, toggleLike } = useFavorite(); // states et fonctions importées depuis le contexte liés à l'ajout de favoris
 
   const [pageActuelle, setPageActuelle] = useState(1);
   const showsParPage = 12;
@@ -18,18 +18,11 @@ function Home() {
   const navigate = useNavigate();
 
   const cardClick = (id: number): void => {
+    //fonction qui permet au clique sur les Showcard de renvoyer à la page Showdetails
     navigate(`/show/${id}`);
   };
 
-  const toggleLike = (id: number) => {
-    if (favorites.includes(id) === true) {
-      setFavorites(favorites.filter((AlreadyId) => AlreadyId !== id));
-    } else {
-      setFavorites([...favorites, id]);
-    }
-  };
-
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(""); //state utilisé pour la barre de recherche
 
   return (
     <>
