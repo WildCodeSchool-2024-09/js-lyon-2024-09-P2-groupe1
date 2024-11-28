@@ -28,16 +28,16 @@ import ShowDetails from "./pages/ShowDetails";
 
 const router = createBrowserRouter([
   {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
     path: "/",
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/", //Page principale
         element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
       },
       {
         path: "show/:id",
@@ -60,6 +60,9 @@ if (rootElement == null) {
 }
 
 // Render the app inside the root element
+
+//Utlisation UserProvider et Favoriteprovider sur toutes les routes disponibles
+
 createRoot(rootElement).render(
   <StrictMode>
     <UserProvider>

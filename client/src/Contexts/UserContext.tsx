@@ -9,12 +9,16 @@ type UserContextType = {
   setIsLoggedIn: (value: boolean) => void;
 };
 
+//Création de UserContext
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
+// Création de UserProvider
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [showUserLogo, setShowUserLogo] = useState(false);
   const [userName, setUserName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  //Partage des props via le contexte UserContext
 
   return (
     <UserContext.Provider
@@ -31,6 +35,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     </UserContext.Provider>
   );
 };
+
+//Custom hook pour utilisation de UserContext
 
 export const useUserContext = () => {
   const context = useContext(UserContext);

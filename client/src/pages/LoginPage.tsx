@@ -8,10 +8,13 @@ import Input from "../components/ui/input";
 function LoginPage() {
   const [localUserName, setLocalUserName] = useState("");
   const [password, setPassword] = useState("");
-  const { setShowUserLogo, setUserName, setIsLoggedIn } = useUserContext();
+  const { setShowUserLogo, setUserName, setIsLoggedIn } = useUserContext(); //Utilisation UserContext
   const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    //Condition remplissage formulaire sinon non-validation
+
     if (localUserName && password) {
       setShowUserLogo(true);
       setUserName(localUserName);
