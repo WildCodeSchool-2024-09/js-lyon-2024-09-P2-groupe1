@@ -16,15 +16,19 @@ interface ShowDetailsData {
 }
 
 function ShowDetails() {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>(); // On récupère l'id depuis l'URL avec "useParams"
   const [show, setMovie] = useState<ShowDetailsData | null>(null);
+  // Le type `ShowDetailsData | null` indique que `show` peut être soit un objet contenant
+  // les détails du show, soit `null` si les données ne sont pas encore chargées.
   const { favorites, setFavorites } = useFavorite();
   const MovieSummary = ({ summary }: { summary: string }) => {
+    // On déclare un composant enfant `MovieSummary`et on lui donne la propriéte "summary" de type "string"
     return <div>{parse(summary)}</div>;
   };
 
   useEffect(() => {
     if (id) {
+      // Vérifie si un paramètre `id` est présent dans la route dynamique, sinon pas de requête
       fetch(`https://api.tvmaze.com/shows/${id}`)
         .then((response) => response.json())
         .then((data) => {
@@ -34,17 +38,22 @@ function ShowDetails() {
   }, [id]);
 
   if (!show) {
-    return <p>Loading...</p>;
+    return <p>Loading...</p>; // message "d'attente" au chargement de l'API
   }
 
   const toggleFavorite = (showId: number) => {
+    // Vérifie si le show est déjà dans la liste des favoris.
     if (favorites.includes(showId)) {
+      // Si le show est déjà dans les favoris, on le retire en filtrant la liste
       setFavorites(favorites.filter((id) => id !== showId));
     } else {
+      // Sinon, on l'ajoute à la liste des favoris en créant un nouveau tableau.
       setFavorites([...favorites, showId]);
     }
   };
   const showId = id ? Number(id) : null;
+  // Vérification si id a une valeur. Si oui l'expression avant les deux-points (:)
+  // est exécutée, sinon, l'expression après les deux-points est exécutée.
 
   const isFavorite = showId !== null && favorites.includes(showId);
   return (
