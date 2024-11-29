@@ -28,20 +28,20 @@ import ShowDetails from "./pages/ShowDetails";
 
 const router = createBrowserRouter([
   {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
     path: "/",
     element: <App />,
     children: [
       {
-        path: "/", //Page principale
+        path: "/",
         element: <Home />,
       },
       {
-        path: "/login",
-        element: <LoginPage />,
-      },
-      {
         path: "show/:id",
-        element: <ShowDetails />, //Route dynamique via l'id sur la page ShowDetails
+        element: <ShowDetails />,
       },
       {
         path: "favorites",
