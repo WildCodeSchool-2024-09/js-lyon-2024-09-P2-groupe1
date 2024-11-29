@@ -7,8 +7,15 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import { Favoriteprovider } from "./Contexts/FavoriteContext";
+import { UserProvider } from "./Contexts/UserContext";
+import Favorites from "./pages/Favoris";
+import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+import ShowDetails from "./pages/ShowDetails";
 
 // Import additional components for new routes
+
 // Try creating these components in the "pages" folder
 
 // import About from "./pages/About";
@@ -18,12 +25,30 @@ import App from "./App";
 
 // Create router configuration with routes
 // You can add more routes as you build out your app!
+
 const router = createBrowserRouter([
   {
-    path: "/", // The root path
-    element: <App />, // Renders the App component for the home page
+    path: "/login",
+    element: <LoginPage />,
   },
-  // Try adding a new route! For example, "/about" with an About component
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "show/:id",
+        element: <ShowDetails />,
+      },
+      {
+        path: "favorites",
+        element: <Favorites />,
+      },
+    ],
+  },
 ]);
 
 /* ************************************************************************* */
@@ -35,9 +60,16 @@ if (rootElement == null) {
 }
 
 // Render the app inside the root element
+
+//Utlisation UserProvider et Favoriteprovider sur toutes les routes disponibles
+
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <Favoriteprovider>
+        <RouterProvider router={router} />
+      </Favoriteprovider>
+    </UserProvider>
   </StrictMode>,
 );
 
@@ -63,5 +95,5 @@ createRoot(rootElement).render(
  *
  * 3. Experiment with Dynamic Routes:
  *    You can create routes that take parameters (e.g., /users/:id).
- *    Documentation: https://reactrouter.com/en/main/start/tutorial#url-params-in-loaders
+1 *    Documentation: https://reactrouter.com/en/main/start/tutorial#url-params-in-loaders
  */

@@ -1,21 +1,3 @@
-* {
-  margin: 0;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #bc4b4b;
-}
-
-#logo {
-  width: 7em;
-  height: 7em;
-  padding: 0.5em;
-}
-
 button {
   background: transparent;
   border: none;
@@ -26,31 +8,22 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-#Log_In {
-  background-color: white;
-  margin-top: 0;
-  color: #bc4b4b;
-  border: rgb(148, 148) solid 1px;
-  width: 7em;
-  height: 2em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  transition: transform 0.3s ease;
-}
-
-#Log_In:hover {
-  background-color: #e0e0e0;
-  transform: scale(1.1);
-}
-
-#navbar {
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  gap: 25px;
+  justify-content: space-between;
   align-items: center;
+  padding: 0px 20px;
+  background-color: #bc4b4b;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#header {
+  color: #e0e0e0;
 }
 
 #home {
@@ -65,4 +38,109 @@ button:hover {
 
 #home:hover {
   transform: scale(1.2);
+}
+
+.icon-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.icon-label {
+  position: absolute;
+  bottom: -0.1em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.icon-container:hover .icon-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  top: 60px;
+}
+
+#Log_In,
+#Log_Out {
+  background-color: white;
+  margin-top: 0;
+  color: #bc4b4b;
+  width: 7em;
+  height: 2em;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#Log_In:hover,
+#Log_Out:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+#logo {
+  width: 7em;
+  height: 7em;
+  padding: 0.5em;
+  transition: 0.3s ease;
+}
+
+#logo:hover {
+  transform: scale(1.1);
+}
+
+#navbar {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  padding-right: 4em;
+}
+
+#username {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: italic;
+}
+
+#star {
+  border: none;
+  width: 2em;
+  height: 2em;
+  padding-bottom: 2em;
+  background: transparent;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+#star:hover {
+  transform: scale(1.2);
+}
+
+#title-favorite {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+@media (max-width: 768px) {
+  #logo {
+    width: 5em;
+    height: 5em;
+    padding-left: 0.5em;
+    transition: 0.3s ease;
+  }
+
+  #Log_Out {
+    width: 9em;
+  }
+
+  #navbar {
+    gap: 10px;
+    padding-right: 3em;
+  }
 }
