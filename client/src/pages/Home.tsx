@@ -1,57 +1,46 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import { useState } from "react";
 import { useFavorite } from "../Contexts/FavoriteContext";
+import Pagination from "../components/Pagination";
+import SearchBar from "../components/searchBar";
+import ShowCard from "./Showcard";
 
 function Home() {
-  const { favorites, setFavorites, shows } = useFavorite();
+  const { favorites, shows, toggleLike } = useFavorite(); // states et fonctions importées depuis le contexte liés à l'ajout de favoris
+
+  const [pageActuelle, setPageActuelle] = useState(1);
+  const showsParPage = 12;
+
+  const indexDebut = (pageActuelle - 1) * showsParPage;
+  const indexFin = indexDebut + showsParPage;
 
   const navigate = useNavigate();
 
   const cardClick = (id: number): void => {
-    navigate(`/movie/${id}`);
+    //fonction qui permet au clique sur les Showcard de renvoyer à la page Showdetails
+    navigate(`/show/${id}`);
   };
 
-  const toggleLike = (id: number) => {
-    if (favorites.includes(id) === true) {
-      setFavorites(favorites.filter((AlreadyId) => AlreadyId !== id));
-    } else {
-      setFavorites([...favorites, id]);
-    }
-  };
+  const [searchTerm, setSearchTerm] = useState(""); //state utilisé pour la barre de recherche
 
   return (
     <>
-      <section className="card">
-        {shows.slice(0, 12).map((movie) => (
-          <figure key={movie.id} className="item">
-            <div className="centerImage">
-              <img
-                className="imagefilm"
-                src={movie.image.medium}
-                alt={movie.name}
-                onClick={() => cardClick(movie.id)}
-                onKeyDown={() => cardClick(movie.id)}
-              />
-            </div>
-            <section className="titleButton">
-              <h2
-                onClick={() => cardClick(movie.id)}
-                onKeyDown={() => cardClick(movie.id)}
-                className="titlefilm"
-              >
-                {movie.name}
-              </h2>
-              <button
-                type="button"
-                className="star"
-                onClick={() => toggleLike(movie.id)}
-              >
-                {favorites.includes(movie.id) === true ? "⭐" : "☆"}
-              </button>
-            </section>
-          </figure>
-        ))}
-      </section>
+      <SearchBar onSearch={setSearchTerm} />
+      <ShowCard
+        shows={shows}
+        favorites={favorites}
+        searchTerm={searchTerm}
+        indexDebut={indexDebut}
+        indexFin={indexFin}
+        cardClick={cardClick}
+        toggleLike={toggleLike}
+      />
+      <Pagination
+        pageActuelle={pageActuelle}
+        totalPages={Math.ceil(shows.length / showsParPage)}
+        onPageChange={setPageActuelle}
+      />
     </>
   );
 }

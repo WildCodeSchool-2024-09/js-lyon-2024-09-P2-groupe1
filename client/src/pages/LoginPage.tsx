@@ -3,20 +3,25 @@ import Logo from "../assets/images/Logo_RT.png";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../Contexts/UserContext";
+import Input from "../components/ui/input";
 
 function LoginPage() {
-  const [userName, setUserName] = useState("");
+  const [localUserName, setLocalUserName] = useState("");
   const [password, setPassword] = useState("");
-  const { setShowUserLogo } = useUserContext();
+  const { setShowUserLogo, setUserName, setIsLoggedIn } = useUserContext(); //Utilisation UserContext
   const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (userName && password) {
+    //Condition remplissage formulaire sinon non-validation
+
+    if (localUserName && password) {
       setShowUserLogo(true);
+      setUserName(localUserName);
+      setIsLoggedIn(true);
       navigate("/");
     }
-    setUserName("");
+    setLocalUserName("");
     setPassword("");
   };
 
@@ -27,26 +32,28 @@ function LoginPage() {
         <form onSubmit={handleSubmit}>
           <div className="label1">
             <label htmlFor="identifiant">Username</label>
-            <input
-              id="identifiant"
+            <Input
               type="text"
+              id="identifiant"
+              placeholder="username"
+              value={localUserName}
+              onChange={(e) => setLocalUserName(e.target.value)}
               required
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
             />
           </div>
           <div className="label2">
             <label htmlFor="mdp">Password</label>
             <input
-              id="mdp"
+              id="password"
+              placeholder="password"
               type="password"
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <button type="submit" className="Homebutton">
-            Se Connecter
+            Connect
           </button>
         </form>
       </div>
